@@ -117,18 +117,16 @@ export function Hero() {
               every week across Physics, Chemistry, Biology, Maths and English.
             </p>
 
-            <div className="mt-8 flex max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center">
+            <div className="mt-8 flex max-w-[260px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center">
               <ButtonLink
-                size="lg"
-                className="h-12 w-full px-7 text-base sm:w-auto"
+                className="h-11 w-full px-6 sm:w-auto sm:px-7"
                 href="/pricing"
               >
                 Book your evaluation
               </ButtonLink>
               <ButtonLink
-                size="lg"
                 variant="outline"
-                className="h-12 w-full px-6 text-base sm:w-auto"
+                className="h-11 w-full px-6 sm:w-auto sm:px-7"
                 href={site.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -832,7 +830,7 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24">
+    <section className="relative overflow-hidden pb-5 md:pb-12 md:pt-8">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(55%_55%_at_50%_45%,#000,transparent)]"
@@ -864,21 +862,19 @@ export function FinalCta() {
             Book an evaluation and our British-qualified team will map a clear
             path to better grades in any subject.
           </p>
-          <div className="mx-auto mt-9 flex max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+          <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <ButtonLink
-              size="lg"
               href="/pricing"
-              className="h-12 w-full px-7 text-base sm:w-auto"
+              className="h-11 w-[260px] px-6 sm:w-auto sm:px-7"
             >
               Book your evaluation
             </ButtonLink>
             <ButtonLink
-              size="lg"
               variant="outline"
               href={site.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-12 w-full px-7 text-base sm:w-auto"
+              className="h-11 w-[260px] px-6 sm:w-auto sm:px-7"
             >
               <MessageCircle className="size-5" />
               Talk to us on WhatsApp

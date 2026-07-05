@@ -232,31 +232,44 @@ function MobileNav({ onNavigate }) {
 }
 
 function MobileSubjectList({ base, onNavigate }) {
+  const allLabel = base === "courses" ? "All courses" : "All past papers";
   return (
-    <div className="flex flex-col gap-1">
-      {subjects.map((s) => (
-        <div key={s.slug} className="py-1">
-          <Link
-            href={`/${base}/${s.slug}`}
-            onClick={onNavigate}
-            className="flex items-center rounded-lg px-3 py-1.5 text-sm font-semibold hover:bg-muted"
-          >
-            {s.name}
-          </Link>
-          <div className="flex flex-wrap gap-1.5 px-3 pt-1.5 pb-1">
-            {s.boards.map((b) => (
+    <div className="flex flex-col">
+      <Link
+        href={`/${base}`}
+        onClick={onNavigate}
+        className="rounded-lg px-3 py-2.5 text-sm font-semibold text-primary hover:bg-muted"
+      >
+        {allLabel}
+      </Link>
+      <Accordion className="w-full">
+        {subjects.map((s) => (
+          <AccordionItem key={s.slug} value={s.slug} className="border-b-0">
+            <AccordionTrigger className="rounded-lg px-3 py-2.5 text-sm font-semibold hover:no-underline aria-expanded:bg-muted">
+              {s.name}
+            </AccordionTrigger>
+            <AccordionContent className="pb-1 pl-3">
               <Link
-                key={b}
-                href={`/${base}/${s.slug}/${b}`}
+                href={`/${base}/${s.slug}`}
                 onClick={onNavigate}
-                className="rounded-md border border-border px-2 py-0.5 text-xs text-muted-foreground hover:text-foreground"
+                className="block rounded-lg px-3 py-2 text-sm font-medium text-primary hover:bg-muted"
               >
-                {boardName(b)}
+                All {s.name}
               </Link>
-            ))}
-          </div>
-        </div>
-      ))}
+              {s.boards.map((b) => (
+                <Link
+                  key={b}
+                  href={`/${base}/${s.slug}/${b}`}
+                  onClick={onNavigate}
+                  className="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  {boardName(b)}
+                </Link>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 }
