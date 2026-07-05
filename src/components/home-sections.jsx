@@ -830,7 +830,7 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden pb-5 md:pb-12 md:pt-8">
+    <section className="relative overflow-hidden pb-3 md:pb-6 md:pt-8">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(55%_55%_at_50%_45%,#000,transparent)]"
