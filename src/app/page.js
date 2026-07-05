@@ -8,7 +8,6 @@ import {
   Comparison,
   Reviews,
   PricingTeaser,
-  SeoContent,
   Faq,
   FinalCta,
 } from "@/components/home-sections";
@@ -84,7 +83,6 @@ export default function HomePage() {
       <Comparison />
       <TeamCarousel />
       <PricingTeaser />
-      <SeoContent />
       <Faq />
       <Reviews />
       <FinalCta />

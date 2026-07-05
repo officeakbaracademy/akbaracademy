@@ -762,24 +762,28 @@ export function SeoContent() {
       <Container className="max-w-3xl">
         <SectionHeading
           center={false}
-          eyebrow="About Akbar Academy"
+          eyebrow="In depth"
           title="Premium tuition, built around results"
         />
-        <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
+        <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
           {/* First section always visible for immediate context + SEO. */}
           {seoSections[0].body.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
 
-        <Accordion className="mt-6 w-full">
+        <Accordion className="mt-8 w-full space-y-3">
           {seoSections.slice(1).map((sec) => (
-            <AccordionItem key={sec.id} value={sec.id}>
+            <AccordionItem
+              key={sec.id}
+              value={sec.id}
+              className="rounded-2xl border border-border bg-card px-5"
+            >
               <AccordionTrigger className="py-4 text-left font-heading text-base font-semibold hover:no-underline">
                 {sec.title}
               </AccordionTrigger>
               <AccordionContent>
-                <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground [&_a]:no-underline">
+                <div className="space-y-4 text-base leading-relaxed text-muted-foreground [&_a]:no-underline">
                   {sec.body.map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
@@ -824,35 +828,47 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden py-12 sm:py-16">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-dots opacity-60 [mask-image:radial-gradient(60%_60%_at_50%_50%,#000,transparent)]"
-      />
-      <Container className="relative text-center">
-        <Reveal>
-          <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance sm:text-5xl">
-            Give your child a better system.
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-            Book an evaluation and we&apos;ll map a clear path to better grades in
-            any subject.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <ButtonLink size="lg" className="h-12 px-7 text-base" href="/pricing">
-              Book your evaluation
-            </ButtonLink>
-            <ButtonLink
-              size="lg"
-              variant="outline"
-              className="h-12 px-7 text-base"
-              href={site.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MessageCircle className="size-5" />
-              Talk to us on WhatsApp
-            </ButtonLink>
+    <section className="py-12 sm:py-16">
+      <Container>
+        <Reveal className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0b5a97] via-[#0a4a7d] to-[#06375a] px-6 py-14 text-center shadow-xl shadow-primary/25 sm:px-12 sm:py-20">
+          {/* Electric-blue glow (top-left) + Mandarin-orange glow (bottom-right) */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -left-20 -top-24 size-72 rounded-full bg-primary/45 blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-24 -right-20 size-80 rounded-full bg-gold/45 blur-3xl"
+          />
+
+          <div className="relative">
+            <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl">
+              Give your child a better system.
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 text-pretty">
+              Book an evaluation and we&apos;ll map a clear path to better grades in
+              any subject.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <ButtonLink
+                size="lg"
+                href="/pricing"
+                className="h-12 bg-white px-7 text-base text-primary hover:bg-white/90"
+              >
+                Book your evaluation
+              </ButtonLink>
+              <ButtonLink
+                size="lg"
+                variant="outline"
+                href={site.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-12 border-white/50 bg-transparent px-7 text-base text-white hover:bg-white/10 hover:text-white"
+              >
+                <MessageCircle className="size-5" />
+                Talk to us on WhatsApp
+              </ButtonLink>
+            </div>
           </div>
         </Reveal>
       </Container>
