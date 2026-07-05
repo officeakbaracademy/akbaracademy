@@ -221,7 +221,7 @@ export const team = [
     name: "Michael Kwatia",
     subject: "Maths",
     photo: "/assets/team-michael.jpg",
-    bio: "Teaches Maths and Physics with a gift for making method and problem-solving click, backed by relentless past-paper practice.",
+    bio: "Teaches Maths with a gift for making method and problem-solving click, backed by relentless past-paper practice.",
   },
   {
     name: "Jav",
