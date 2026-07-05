@@ -6,7 +6,6 @@ import {
   Stats,
   SystemSection,
   Comparison,
-  Team,
   Reviews,
   PricingTeaser,
   SeoContent,
@@ -14,6 +13,7 @@ import {
   FinalCta,
 } from "@/components/home-sections";
 import { SubjectsShowcase } from "@/components/subjects-showcase";
+import { TeamCarousel } from "@/components/team-carousel";
 import { site, subjects, faqs } from "@/lib/site";
 
 // Structured data for traditional search + AI answer engines.
@@ -82,7 +82,7 @@ export default function HomePage() {
       <Stats />
       <SystemSection />
       <Comparison />
-      <Team />
+      <TeamCarousel />
       <PricingTeaser />
       <SeoContent />
       <Faq />

@@ -206,34 +206,40 @@ export const comparison = [
 // Team.
 export const team = [
   {
+    name: "Kaleem Akbar",
+    subject: "Physics Lead",
+    photo: "/assets/team-kaleem.jpg",
+    bio: "Founder of Akbar Academy and lead Physics tutor. A British-qualified examiner whose structured system has taught more than 3,000 students to top grades.",
+  },
+  {
     name: "Phil McComish",
     subject: "Physics",
-    photo: "/assets/teacher-phil.jpeg",
-    bio: "30+ years teaching. Examiner for Edexcel International A-Level & CIE A-Level. Co-author of a Cambridge University Press Physics book.",
+    photo: "/assets/team-phil.jpg",
+    bio: "30+ years teaching. Examiner for Edexcel International A-Level and CIE A-Level, and co-author of a Cambridge University Press Physics book.",
   },
   {
-    name: "Gemma Hendriks",
-    subject: "Chemistry",
-    photo: "/assets/teacher-gemma.png",
-    bio: "PGCE Science (King's College London), BSc Physiology. Former Assistant Head of Secondary with a track record of top results.",
-  },
-  {
-    name: "Alexandra Nunn",
-    subject: "Biology",
-    photo: "/assets/teacher-alex.jpg",
-    bio: "PGCE Secondary Science (University of Worcester), BSc Life Sciences. Head of Science with a gift for clear, confident teaching.",
-  },
-  {
-    name: "Parvaiz Sharif",
+    name: "Michael Kwatia",
     subject: "Maths",
-    photo: "/assets/teacher-parvaiz.jpeg",
-    bio: "20+ years and a former Secondary Head Teacher. Ex-Exams Officer with insider knowledge of CIE & Edexcel assessment.",
+    photo: "/assets/team-michael.jpg",
+    bio: "Teaches Maths and Physics with a gift for making method and problem-solving click, backed by relentless past-paper practice.",
+  },
+  {
+    name: "Jav",
+    subject: "Chemistry",
+    photo: "/assets/team-jav.jpg",
+    bio: "Chemistry specialist who teaches organic, inorganic and physical chemistry as one connected system, with the exam technique the boards reward.",
+  },
+  {
+    name: "Alex Robert",
+    subject: "Biology",
+    photo: "/assets/team-alex.jpg",
+    bio: "Biology specialist teaching cells to ecosystems for genuine understanding, plus the precise exam language markers look for.",
   },
   {
     name: "George Dixon",
     subject: "English",
-    photo: "/assets/teacher-george.png",
-    bio: "30 years across the UK & Middle East, all boards plus IELTS. Now a US College Counsellor, students to Oxbridge & the Ivy League.",
+    photo: "/assets/team-george.jpg",
+    bio: "30 years across the UK and Middle East, all boards plus IELTS. Now a US College Counsellor, with students to Oxbridge and the Ivy League.",
   },
 ];
 
