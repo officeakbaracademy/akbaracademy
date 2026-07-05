@@ -117,14 +117,18 @@ export function Hero() {
               every week across Physics, Chemistry, Biology, Maths and English.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <ButtonLink size="lg" className="h-12 px-7 text-base" href="/pricing">
+            <div className="mt-8 flex max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center">
+              <ButtonLink
+                size="lg"
+                className="h-12 w-full px-7 text-base sm:w-auto"
+                href="/pricing"
+              >
                 Book your evaluation
               </ButtonLink>
               <ButtonLink
                 size="lg"
                 variant="outline"
-                className="h-12 px-6 text-base"
+                className="h-12 w-full px-6 text-base sm:w-auto"
                 href={site.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
