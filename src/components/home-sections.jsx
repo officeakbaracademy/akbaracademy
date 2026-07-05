@@ -828,47 +828,57 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="py-12 sm:py-16">
-      <Container>
-        <Reveal className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0b5a97] via-[#0a4a7d] to-[#06375a] px-6 py-14 text-center shadow-xl shadow-primary/25 sm:px-12 sm:py-20">
-          {/* Electric-blue glow (top-left) + Mandarin-orange glow (bottom-right) */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -left-20 -top-24 size-72 rounded-full bg-primary/45 blur-3xl"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -bottom-24 -right-20 size-80 rounded-full bg-gold/45 blur-3xl"
-          />
-
-          <div className="relative">
-            <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl">
-              Give your child a better system.
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 text-pretty">
-              Book an evaluation and we&apos;ll map a clear path to better grades in
-              any subject.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <ButtonLink
-                size="lg"
-                href="/pricing"
-                className="h-12 bg-white px-7 text-base text-primary hover:bg-white/90"
+    <section className="relative overflow-hidden py-16 sm:py-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(55%_55%_at_50%_45%,#000,transparent)]"
+      />
+      <Container className="relative text-center">
+        <Reveal>
+          <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+            Give your child a{" "}
+            <span className="relative whitespace-nowrap text-primary">
+              better system
+              <svg
+                aria-hidden
+                viewBox="0 0 300 16"
+                preserveAspectRatio="none"
+                className="absolute -bottom-1.5 left-0 h-3 w-full text-gold"
               >
-                Book your evaluation
-              </ButtonLink>
-              <ButtonLink
-                size="lg"
-                variant="outline"
-                href={site.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-12 border-white/50 bg-transparent px-7 text-base text-white hover:bg-white/10 hover:text-white"
-              >
-                <MessageCircle className="size-5" />
-                Talk to us on WhatsApp
-              </ButtonLink>
-            </div>
+                <path
+                  d="M2 11 C 60 3, 120 3, 160 8 S 260 14, 298 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+            .
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
+            Book an evaluation and our British-qualified team will map a clear
+            path to better grades in any subject.
+          </p>
+          <div className="mx-auto mt-9 flex max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+            <ButtonLink
+              size="lg"
+              href="/pricing"
+              className="h-12 w-full px-7 text-base sm:w-auto"
+            >
+              Book your evaluation
+            </ButtonLink>
+            <ButtonLink
+              size="lg"
+              variant="outline"
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-12 w-full px-7 text-base sm:w-auto"
+            >
+              <MessageCircle className="size-5" />
+              Talk to us on WhatsApp
+            </ButtonLink>
           </div>
         </Reveal>
       </Container>
