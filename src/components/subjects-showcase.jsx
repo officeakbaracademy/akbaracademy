@@ -16,7 +16,7 @@ export function SubjectsShowcase() {
   const s = subjects[active];
 
   return (
-    <section id="subjects" className="py-16 sm:py-20">
+    <section id="subjects" className="py-12 sm:py-16">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">

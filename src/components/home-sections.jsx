@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { ButtonLink } from "@/components/button-link";
+import { CountUp } from "@/components/count-up";
 import {
   Accordion,
   AccordionContent,
@@ -278,7 +279,7 @@ const ABOUT_POINTS = [
 
 export function About() {
   return (
-    <section id="about" className="py-16 sm:py-20">
+    <section id="about" className="py-12 sm:py-16">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* LEFT — info */}
@@ -367,7 +368,7 @@ export function About() {
 // 3 — SUBJECTS ----------------------------------------------------------------
 export function Subjects() {
   return (
-    <section id="subjects" className="py-16 sm:py-20">
+    <section id="subjects" className="py-12 sm:py-16">
       <Container>
         <SectionHeading
           eyebrow="One platform, every subject"
@@ -438,7 +439,7 @@ export function Subjects() {
 // 4 — PROBLEM / SOLUTION ------------------------------------------------------
 export function Problem() {
   return (
-    <section className="border-y border-border bg-muted/30 py-16 sm:py-20">
+    <section className="border-y border-border bg-muted/30 py-12 sm:py-16">
       <Container>
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-heading text-2xl font-bold tracking-tight text-balance sm:text-3xl">
@@ -461,7 +462,7 @@ const STAT_ICONS = [Users, GraduationCap, Star, BadgeCheck];
 
 export function Stats() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="pb-5 md:pb-12 md:pt-8">
       <Container>
         <Reveal className="relative">
           <div
@@ -480,9 +481,10 @@ export function Stats() {
                     <span className="grid size-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
                       <Icon className="size-5" />
                     </span>
-                    <div className="font-heading text-xl font-extrabold leading-tight sm:text-2xl lg:text-3xl">
-                      {s.value}
-                    </div>
+                    <CountUp
+                      value={s.value}
+                      className="block font-heading text-xl font-extrabold leading-tight sm:text-2xl lg:text-3xl"
+                    />
                     <div className="text-sm font-medium text-muted-foreground">
                       {s.label}
                     </div>
@@ -500,33 +502,65 @@ export function Stats() {
 // 6 — SYSTEM ------------------------------------------------------------------
 export function SystemSection() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-12 sm:py-16">
       <Container>
         <SectionHeading
           eyebrow="The Akbar Academy System"
           title="A four-stage engine for real progress"
           lead="The same structured method behind every subject and every teacher."
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {systemSteps.map((step, i) => {
-            const Icon = STEP_ICONS[i];
-            return (
-              <Reveal key={step.n} delay={i * 70}>
-                <div className="relative h-full rounded-2xl border border-border bg-card p-6">
-                  <div className="flex items-center justify-between">
-                    <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="size-5" />
-                    </span>
-                    <span className="font-heading text-4xl font-extrabold text-border">
+        {/* Desktop — horizontal milestone timeline */}
+        <div className="relative mt-16 hidden lg:block">
+          <div
+            aria-hidden
+            className="absolute left-[12.5%] right-[12.5%] top-8 h-0.5 bg-gradient-to-r from-primary/60 via-primary/50 to-primary/20"
+          />
+          <div className="grid grid-cols-4 gap-6">
+            {systemSteps.map((step, i) => {
+              const Icon = STEP_ICONS[i];
+              return (
+                <Reveal key={step.n} delay={i * 100} className="flex flex-col items-center text-center">
+                  <div className="relative z-10 grid size-16 place-items-center rounded-full border-2 border-primary bg-background text-primary shadow-sm">
+                    <Icon className="size-6" />
+                    <span className="absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
                       {step.n}
                     </span>
                   </div>
-                  <h3 className="mt-4 font-heading text-lg font-bold">{step.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{step.desc}</p>
+                  <h3 className="mt-5 font-heading text-lg font-bold">{step.title}</h3>
+                  <p className="mt-2 max-w-[15rem] text-sm text-muted-foreground">
+                    {step.desc}
+                  </p>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile — vertical milestone timeline */}
+        <div className="relative mt-12 lg:hidden">
+          <div
+            aria-hidden
+            className="absolute bottom-8 left-8 top-8 w-0.5 bg-gradient-to-b from-primary/60 to-primary/20"
+          />
+          <div className="space-y-8">
+            {systemSteps.map((step, i) => {
+              const Icon = STEP_ICONS[i];
+              return (
+                <div key={step.n} className="relative flex gap-5">
+                  <div className="relative z-10 grid size-16 shrink-0 place-items-center rounded-full border-2 border-primary bg-background text-primary shadow-sm">
+                    <Icon className="size-6" />
+                    <span className="absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                      {step.n}
+                    </span>
+                  </div>
+                  <div className="pt-2">
+                    <h3 className="font-heading text-lg font-bold">{step.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
+                  </div>
                 </div>
-              </Reveal>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>
@@ -536,13 +570,14 @@ export function SystemSection() {
 // 7 — COMPARISON --------------------------------------------------------------
 export function Comparison() {
   return (
-    <section className="border-y border-border bg-muted/30 py-16 sm:py-20">
+    <section className="border-y border-border bg-muted/30 py-12 sm:py-16">
       <Container>
         <SectionHeading
           title="A class above typical tuition"
           lead="Same exams. A completely different system."
         />
-        <Reveal className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-border bg-card">
+        {/* Desktop table */}
+        <Reveal className="mx-auto mt-12 hidden max-w-3xl overflow-hidden rounded-2xl border border-border bg-card sm:block">
           <div className="grid grid-cols-[1.5fr_1fr_1fr] bg-muted/50 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             <div className="p-4">What matters</div>
             <div className="p-4 text-primary">Akbar Academy</div>
@@ -568,6 +603,38 @@ export function Comparison() {
             </div>
           ))}
         </Reveal>
+
+        {/* Mobile cards */}
+        <div className="mt-10 space-y-3 sm:hidden">
+          {comparison.map((row) => (
+            <div
+              key={row.label}
+              className="rounded-2xl border border-border bg-card p-4"
+            >
+              <div className="font-semibold">{row.label}</div>
+              <div className="mt-3 grid grid-cols-2 gap-2.5 text-sm">
+                <div className="rounded-xl bg-primary/5 p-3 ring-1 ring-primary/10">
+                  <div className="text-[10px] font-bold uppercase tracking-wide text-primary">
+                    Akbar Academy
+                  </div>
+                  <div className="mt-1.5 flex items-start gap-1.5 font-semibold">
+                    <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                    {row.us}
+                  </div>
+                </div>
+                <div className="rounded-xl bg-muted/40 p-3">
+                  <div className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+                    Typical tuition
+                  </div>
+                  <div className="mt-1.5 flex items-start gap-1.5 text-muted-foreground">
+                    <X className="mt-0.5 size-4 shrink-0 text-muted-foreground/60" />
+                    {row.them}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </Container>
     </section>
   );
@@ -576,27 +643,31 @@ export function Comparison() {
 // 8 — TEAM --------------------------------------------------------------------
 export function Team() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-12 sm:py-16">
       <Container>
         <SectionHeading
           eyebrow="Meet the team"
           title="Taught by people who write the books"
           lead="A hand-picked team of British-qualified teachers, examiners and authors, every one DBS-checked and carefully vetted."
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-10 flex flex-wrap justify-center gap-4 sm:gap-5">
           {team.map((t, i) => (
-            <Reveal key={t.name} delay={i * 60}>
-              <div className="h-full rounded-2xl border border-border bg-card p-5 text-center">
+            <Reveal
+              key={t.name}
+              delay={i * 70}
+              className="w-full max-w-[300px] sm:w-[300px]"
+            >
+              <div className="flex h-full flex-col items-center rounded-2xl border border-border bg-card p-6 text-center transition-colors hover:border-primary/30">
                 <Image
                   src={t.photo}
                   alt={t.name}
-                  width={96}
-                  height={96}
-                  className="mx-auto size-20 rounded-full object-cover ring-2 ring-primary/30"
+                  width={72}
+                  height={72}
+                  className="size-16 rounded-full object-cover ring-2 ring-primary/25"
                 />
                 <h3 className="mt-4 font-heading text-base font-bold">{t.name}</h3>
                 <p className="text-xs font-semibold text-gold">{t.subject}</p>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {t.bio}
                 </p>
               </div>
@@ -612,7 +683,7 @@ export function Team() {
 export function Reviews() {
   const items = [...tickerReviews, ...tickerReviews];
   return (
-    <section id="reviews" className="border-t border-border py-16 sm:py-20">
+    <section id="reviews" className="border-t border-border py-12 sm:py-16">
       <Container>
         <SectionHeading
           eyebrow="Parents & students say"
@@ -644,7 +715,7 @@ export function Reviews() {
 // 10 — PRICING TEASER ---------------------------------------------------------
 export function PricingTeaser() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-12 sm:py-16">
       <Container>
         <Reveal className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/10 via-card to-card p-8 sm:p-12">
           <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
@@ -687,7 +758,7 @@ export function PricingTeaser() {
 // 11 — SEO CONTENT (collapsible, crawlable) -----------------------------------
 export function SeoContent() {
   return (
-    <section className="border-t border-border py-16 sm:py-20">
+    <section className="border-t border-border py-12 sm:py-16">
       <Container className="max-w-3xl">
         <SectionHeading
           center={false}
@@ -725,7 +796,7 @@ export function SeoContent() {
 // 12 — FAQ --------------------------------------------------------------------
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-border bg-muted/30 py-16 sm:py-20">
+    <section id="faq" className="border-t border-border bg-muted/30 py-12 sm:py-16">
       <Container className="max-w-3xl">
         <SectionHeading
           eyebrow="Frequently asked"
@@ -753,7 +824,7 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-20">
+    <section className="relative overflow-hidden py-12 sm:py-16">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-dots opacity-60 [mask-image:radial-gradient(60%_60%_at_50%_50%,#000,transparent)]"
