@@ -62,39 +62,38 @@ export function SubjectsShowcase() {
               <h3 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
                 {s.name}
               </h3>
-              <p className="mt-2 text-base font-medium text-primary">
+              <p className="mt-2 text-base font-medium text-gold">
                 {s.tagline}
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {levels.map((lv) => (
-                  <span
-                    key={lv}
-                    className="rounded-lg bg-muted px-2.5 py-1 text-xs font-semibold text-foreground/80"
-                  >
-                    {lv}
-                  </span>
-                ))}
-              </div>
-
               <p className="mt-5 text-muted-foreground">{s.blurb}</p>
 
-              <ul className="mt-6 grid gap-2.5">
-                {s.boards.map((b) => (
-                  <li
-                    key={b}
-                    className="flex items-start gap-2 text-sm leading-relaxed"
-                  >
-                    <Check className="mt-0.5 size-4 shrink-0 text-gold" />
-                    <span className="text-muted-foreground">
-                      <span className="font-semibold text-foreground">
-                        {boardName(b)}
-                      </span>{" "}
-                      past papers, resources &amp; full syllabus
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {/* Levels and boards as clean, non-interactive info rows */}
+              <dl className="mt-6 space-y-2.5">
+                <div className="flex items-baseline gap-3">
+                  <dt className="w-20 shrink-0 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Levels
+                  </dt>
+                  <dd className="text-sm font-medium text-foreground/90">
+                    {levels.join(", ")}
+                  </dd>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <dt className="w-20 shrink-0 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Boards
+                  </dt>
+                  <dd className="text-sm font-medium text-foreground/90">
+                    {s.boards.map(boardName).join(", ")}
+                  </dd>
+                </div>
+              </dl>
+
+              {/* One clean summary line, no repetition */}
+              <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
+                <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                Full syllabus, past papers, mark schemes and exam technique, all
+                in one place.
+              </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <ButtonLink size="lg" className="h-11 px-6" href={`/courses/${s.slug}`}>

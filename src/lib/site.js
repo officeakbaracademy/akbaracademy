@@ -32,7 +32,7 @@ export const site = {
 
 // Exam boards offered across subjects.
 export const boards = [
-  { slug: "cambridge", name: "Cambridge (CAEI)", short: "Cambridge" },
+  { slug: "cambridge", name: "Cambridge (CAIE)", short: "Cambridge" },
   { slug: "edexcel", name: "Edexcel / Pearson", short: "Edexcel" },
   { slug: "aqa", name: "AQA", short: "AQA" },
 ];
@@ -206,40 +206,40 @@ export const comparison = [
 // Team.
 export const team = [
   {
-    name: "Kaleem Akbar",
+    name: "Mr Kaleem Akbar",
     subject: "Physics Lead",
     photo: "/assets/team-kaleem.jpg",
-    bio: "Founder of Akbar Academy and lead Physics tutor. A British-qualified examiner whose structured system has taught more than 3,000 students to top grades.",
+    bio: "20+ years teaching and a Cambridge and Edexcel endorsed author, with five published IGCSE textbooks.",
   },
   {
-    name: "Phil McComish",
-    subject: "Physics",
+    name: "Mr Phil McComish",
+    subject: "Physics Specialist",
     photo: "/assets/team-phil.jpg",
-    bio: "30+ years teaching. Examiner for Edexcel International A-Level and Cambridge A-Level, and co-author of a Cambridge University Press Physics book.",
+    bio: "26+ years teaching, an examiner across major boards, and a Cambridge University Press author.",
   },
   {
-    name: "Michael Kwatia",
-    subject: "Maths",
-    photo: "/assets/team-michael.jpg",
-    bio: "Teaches Maths with a gift for making method and problem-solving click, backed by relentless past-paper practice.",
-  },
-  {
-    name: "Dan Javid",
-    subject: "Chemistry",
+    name: "Mr Jav",
+    subject: "Chemistry Lead",
     photo: "/assets/team-jav.jpg",
-    bio: "Edexcel IGCSE Chemistry and Biology specialist who teaches the calculations, mechanisms and exam technique the boards reward.",
+    bio: "Biochemistry (Hons), University of Manchester, and an IGCSE and A-Level Chemistry specialist.",
   },
   {
-    name: "Alex Robert",
-    subject: "Biology",
+    name: "Mr Alex Robert",
+    subject: "Biology Lead",
     photo: "/assets/team-alex.jpg",
-    bio: "Biology specialist teaching cells to ecosystems for genuine understanding, plus the precise exam language markers look for.",
+    bio: "An IGCSE and A-Level Biology specialist teaching the Cambridge and Edexcel examination boards.",
   },
   {
-    name: "George Dixon",
-    subject: "English",
+    name: "Mr Michael Kwatia",
+    subject: "Maths Lead",
+    photo: "/assets/team-michael.jpg",
+    bio: "A Qualified Teacher (QTS) with 9+ years of experience and a BSc from Sheffield Hallam University.",
+  },
+  {
+    name: "Ms George Dixon",
+    subject: "English Lead",
     photo: "/assets/team-george.jpg",
-    bio: "30 years across the UK and Middle East, all boards plus IELTS. Now a US College Counsellor, with students to Oxbridge and the Ivy League.",
+    bio: "A BA (Hons) English graduate with two Master's degrees and a PGCE, and an AQA and Edexcel examiner.",
   },
 ];
 
@@ -342,7 +342,7 @@ export const gradeJumps = [
 export const stats = [
   { value: "3,000+", label: "Students taught" },
   { value: "96%", label: "A* to B at IGCSE" },
-  { value: "4.9★", label: "Trustpilot & Google" },
+  { value: "50%", label: "above global average" },
   { value: "Examiners", label: "& published authors" },
 ];
 
@@ -350,7 +350,7 @@ export const stats = [
 export const faqs = [
   {
     q: "Which subjects and exam boards does Akbar Academy cover?",
-    a: "We teach Physics, Chemistry, Biology, Maths and English at IGCSE, AS-Level and A-Level, across the Cambridge (CAEI) and Edexcel/Pearson boards, with AQA also supported for Physics at AS and A-Level. Every subject follows the same structured Akbar Academy system, so the quality is consistent whichever subject or board your child studies.",
+    a: "We teach Physics, Chemistry, Biology, Maths and English at IGCSE, AS-Level and A-Level, across the Cambridge (CAIE) and Edexcel/Pearson boards, with AQA also supported for Physics at AS and A-Level. Every subject follows the same structured Akbar Academy system, so the quality is consistent whichever subject or board your child studies.",
   },
   {
     q: "Are lessons online or in person?",
@@ -381,7 +381,7 @@ export const seoSections = [
     id: "premium-tuition",
     title: "Premium IGCSE & A-Level tuition across Kuwait and the GCC",
     body: [
-      "Akbar Academy is a premium online and onsite tuition provider for IGCSE, AS-Level and A-Level students across Kuwait, the GCC and internationally. We specialise in Physics, Chemistry, Biology, Maths and English, teaching the Cambridge (CAEI) and Edexcel specifications, with AQA also supported for Physics at AS and A-Level, using a single, proven method that consistently moves students up the grade boundaries.",
+      "Akbar Academy is a premium online and onsite tuition provider for IGCSE, AS-Level and A-Level students across Kuwait, the GCC and internationally. We specialise in Physics, Chemistry, Biology, Maths and English, teaching the Cambridge (CAIE) and Edexcel specifications, with AQA also supported for Physics at AS and A-Level, using a single, proven method that consistently moves students up the grade boundaries.",
       "Founded by Kaleem Akbar, the academy was built on one belief: most students already work hard, what they lack is a clear system that turns that effort into marks. Instead of scattered past papers and ad-hoc tutoring, every Akbar Academy student follows a structured path: diagnose the real gaps, practise with purpose, integrate exam technique, and track progress with honest parent feedback every step of the way.",
     ],
   },

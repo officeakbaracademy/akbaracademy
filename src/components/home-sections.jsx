@@ -48,7 +48,7 @@ import {
 const STEP_ICONS = [Target, ClipboardList, GraduationCap, LineChart];
 const boardShort = (slug) => boards.find((b) => b.slug === slug)?.short ?? slug;
 
-function Eyebrow({ children, className, accent = "primary" }) {
+function Eyebrow({ children, className, accent = "gold" }) {
   return (
     <p
       className={cn(
@@ -286,9 +286,9 @@ function ReviewCard({ r }) {
 
 // 2.5 — ABOUT -----------------------------------------------------------------
 const ABOUT_POINTS = [
-  "British-qualified examiners & authors",
+  "British-qualified examiners",
   "One platform, every subject",
-  "Online across the GCC & onsite in Kuwait",
+  "Online, onsite and hybrid",
   "A proven, structured system",
 ];
 
@@ -304,11 +304,11 @@ export function About() {
               A class above the rest, by design
             </h2>
             <p className="mt-5 text-lg text-muted-foreground text-pretty">
-              Founded by Kaleem Akbar on one belief: most students already work
-              hard, they just lack a clear system that turns effort into marks.
-              Our British-qualified examiners and published authors teach every
-              subject on one platform, online across the GCC and onsite in
-              Kuwait.
+              Akbar Academy was built by Kaleem Akbar to solve one problem. Too
+              many students work hard but never see it in the grade. We replace
+              scattered tutoring and random past papers with one structured
+              system, taught by British-qualified examiners and published
+              authors who know exactly what each board rewards.
             </p>
 
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -478,7 +478,7 @@ export function Problem() {
 }
 
 // 5 — STATS -------------------------------------------------------------------
-const STAT_ICONS = [Users, GraduationCap, Star, BadgeCheck];
+const STAT_ICONS = [Users, GraduationCap, TrendingUp, BadgeCheck];
 
 export function Stats() {
   return (
@@ -625,6 +625,7 @@ export function Comparison() {
     <section className="border-y border-border bg-muted/30 py-12 sm:py-16">
       <Container>
         <SectionHeading
+          eyebrow="How we compare"
           title="A class above typical tuition"
           lead="Same exams. A completely different system."
         />
@@ -632,7 +633,7 @@ export function Comparison() {
         <Reveal className="mx-auto mt-12 hidden max-w-3xl overflow-hidden rounded-2xl border border-border bg-card sm:block">
           <div className="grid grid-cols-[1.5fr_1fr_1fr] bg-muted/50 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             <div className="p-4">What matters</div>
-            <div className="p-4 text-primary">Akbar Academy</div>
+            <div className="p-4 text-gold">Akbar Academy</div>
             <div className="p-4">Typical tuition</div>
           </div>
           {comparison.map((row, i) => (
@@ -665,8 +666,8 @@ export function Comparison() {
             >
               <div className="font-semibold">{row.label}</div>
               <div className="mt-3 grid grid-cols-2 gap-2.5 text-sm">
-                <div className="rounded-xl bg-primary/5 p-3 ring-1 ring-primary/10">
-                  <div className="text-[10px] font-bold uppercase tracking-wide text-primary">
+                <div className="rounded-xl bg-gold/5 p-3 ring-1 ring-gold/15">
+                  <div className="text-[10px] font-bold uppercase tracking-wide text-gold">
                     Akbar Academy
                   </div>
                   <div className="mt-1.5 flex items-start gap-1.5 font-semibold">
@@ -793,11 +794,23 @@ export function PricingTeaser() {
                 </ButtonLink>
               </div>
             </div>
-            <div className="shrink-0 rounded-2xl border border-border bg-card px-8 py-6 text-center">
-              <div className="text-sm text-muted-foreground">Evaluation</div>
-              <div className="font-heading text-4xl font-extrabold">KD 49</div>
-              <div className="mt-1 text-xs text-muted-foreground">
-                one-off, then choose a programme
+            <div className="relative shrink-0 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffd24a] to-[#f5a300] px-10 py-8 text-center text-gold-foreground shadow-xl shadow-gold/30 ring-1 ring-black/10">
+              {/* soft top sheen for a polished, glossy finish */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 -top-3 h-20 bg-gradient-to-b from-white/40 to-transparent"
+              />
+              <div className="relative">
+                <span className="inline-flex items-center rounded-full bg-black/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]">
+                  Evaluation
+                </span>
+                <div className="mt-3.5 font-heading text-5xl font-extrabold leading-none tracking-tight">
+                  KD 49
+                </div>
+                <div className="mx-auto mt-4 h-px w-10 bg-black/25" />
+                <p className="mt-3 text-[13px] font-semibold text-gold-foreground">
+                  one-off, then choose a programme
+                </p>
               </div>
             </div>
           </div>
@@ -880,7 +893,7 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden pb-3 md:pb-6 md:pt-8">
+    <section className="relative overflow-hidden pb-2 md:pb-2 md:pt-5">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(55%_55%_at_50%_45%,#000,transparent)]"

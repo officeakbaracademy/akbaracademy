@@ -14,18 +14,18 @@ export function Logo({ className, priority = false }) {
       <Image
         src="/assets/logo-light.png"
         alt="Akbar Academy"
-        width={520}
-        height={168}
+        width={600}
+        height={250}
         priority={priority}
-        className="block h-11 w-auto dark:hidden"
+        className="block h-14 w-auto dark:hidden"
       />
       <Image
         src="/assets/logo-dark.png"
         alt="Akbar Academy"
-        width={520}
-        height={168}
+        width={600}
+        height={250}
         priority={priority}
-        className="hidden h-11 w-auto dark:block"
+        className="hidden h-14 w-auto dark:block"
       />
     </Link>
   );

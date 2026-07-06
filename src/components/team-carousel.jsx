@@ -36,7 +36,7 @@ export function TeamCarousel() {
       <Container>
         <div className="flex items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
               Meet the team
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
