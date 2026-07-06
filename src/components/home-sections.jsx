@@ -304,7 +304,7 @@ export function About() {
               A class above the rest, by design
             </h2>
             <p className="mt-5 text-lg text-muted-foreground text-pretty">
-              Akbar Academy was built by Kaleem Akbar to solve one problem. Too
+              Akbar Academy was founded by Kaleem Akbar to solve one problem. Too
               many students work hard but never see it in the grade. We replace
               scattered tutoring and random past papers with one structured
               system, taught by British-qualified examiners and published
@@ -771,7 +771,7 @@ export function PricingTeaser() {
     <section className="py-12 sm:py-16">
       <Container>
         <Reveal className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/10 via-card to-card p-8 sm:p-12">
-          <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
+          <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
             <div className="max-w-xl">
               <Eyebrow accent="gold">Simple, transparent pricing</Eyebrow>
               <h2 className="mt-3 font-heading text-2xl font-bold tracking-tight sm:text-3xl">
@@ -783,9 +783,13 @@ export function PricingTeaser() {
                 onsite in Kuwait. Commit longer and save up to 15%.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <ButtonLink href="/pricing">See full pricing</ButtonLink>
+                <ButtonLink size="lg" className="h-11 px-6" href="/pricing">
+                  See full pricing
+                </ButtonLink>
                 <ButtonLink
                   variant="outline"
+                  size="lg"
+                  className="h-11 px-6"
                   href={site.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
