@@ -175,6 +175,16 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+  /* Clickable elements get a pointer cursor (browsers default buttons to the
+     arrow cursor). Disabled controls keep the default cursor. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  label[for],
+  summary,
+  select:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 @keyframes marquee {

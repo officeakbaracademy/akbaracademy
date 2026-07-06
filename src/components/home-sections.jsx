@@ -235,12 +235,11 @@ export function TrustBar() {
             >
               <span
                 className={cn(
-                  "grid size-10 shrink-0 place-items-center rounded-full text-white shadow-sm shadow-primary/30 sm:size-9",
-                  // Uniform blue when stacked in the mobile grid; alternate to
-                  // gold only on the single desktop row so it reads as balanced.
-                  i % 2 === 1 &&
-                    "sm:bg-gold sm:text-gold-foreground sm:shadow-gold/30",
-                  "bg-primary"
+                  "grid size-10 shrink-0 place-items-center rounded-full text-white shadow-sm sm:size-9",
+                  // Alternate blue/gold at every screen size.
+                  i % 2 === 1
+                    ? "bg-gold text-gold-foreground shadow-gold/30"
+                    : "bg-primary shadow-primary/30"
                 )}
               >
                 <Icon className="size-5 sm:size-[18px]" />
@@ -478,7 +477,7 @@ export function Problem() {
 }
 
 // 5 — STATS -------------------------------------------------------------------
-const STAT_ICONS = [Users, GraduationCap, TrendingUp, BadgeCheck];
+const STAT_ICONS = [Users, GraduationCap, Star, BadgeCheck];
 
 export function Stats() {
   return (

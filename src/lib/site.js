@@ -70,7 +70,7 @@ export const subjects = [
     tagline: "Structured mastery of every reaction, mole and mechanism.",
     blurb:
       "Organic, inorganic and physical chemistry taught as one connected system, with the calculations and practical skills the boards reward.",
-    boards: ["cambridge", "edexcel"],
+    boards: ["cambridge", "edexcel", "aqa"],
     live: true,
   },
   {
@@ -85,7 +85,7 @@ export const subjects = [
     tagline: "Clear, confident command of every system and process.",
     blurb:
       "Cells to ecosystems, taught for genuine understanding, plus the precise exam language markers are looking for.",
-    boards: ["cambridge", "edexcel"],
+    boards: ["cambridge", "edexcel", "aqa"],
     live: true,
   },
   {
@@ -100,7 +100,7 @@ export const subjects = [
     tagline: "Method, fluency and full-mark exam technique.",
     blurb:
       "Number, algebra, geometry and statistics built up step by step, with relentless past-paper practice so nothing in the exam is a surprise.",
-    boards: ["cambridge", "edexcel"],
+    boards: ["cambridge", "edexcel", "aqa"],
     live: true,
   },
   {
@@ -115,7 +115,7 @@ export const subjects = [
     tagline: "Reading, writing and analysis that reads like top-band work.",
     blurb:
       "First Language and Second Language English taught by an experienced examiner, building the reading, writing and analysis skills that hit the top band.",
-    boards: ["cambridge", "edexcel"],
+    boards: ["cambridge", "edexcel", "aqa"],
     live: true,
   },
 ];
@@ -342,7 +342,7 @@ export const gradeJumps = [
 export const stats = [
   { value: "3,000+", label: "Students taught" },
   { value: "96%", label: "A* to B at IGCSE" },
-  { value: "50%", label: "above global average" },
+  { value: "4.9★", label: "Trustpilot & Google" },
   { value: "Examiners", label: "& published authors" },
 ];
 
@@ -350,7 +350,7 @@ export const stats = [
 export const faqs = [
   {
     q: "Which subjects and exam boards does Akbar Academy cover?",
-    a: "We teach Physics, Chemistry, Biology, Maths and English at IGCSE, AS-Level and A-Level, across the Cambridge (CAIE) and Edexcel/Pearson boards, with AQA also supported for Physics at AS and A-Level. Every subject follows the same structured Akbar Academy system, so the quality is consistent whichever subject or board your child studies.",
+    a: "We teach Physics, Chemistry, Biology, Maths and English at IGCSE, AS-Level and A-Level, across the Cambridge (CAIE), Edexcel/Pearson and AQA boards. Every subject follows the same structured Akbar Academy system, so the quality is consistent whichever subject or board your child studies.",
   },
   {
     q: "Are lessons online or in person?",
@@ -381,7 +381,7 @@ export const seoSections = [
     id: "premium-tuition",
     title: "Premium IGCSE & A-Level tuition across Kuwait and the GCC",
     body: [
-      "Akbar Academy is a premium online and onsite tuition provider for IGCSE, AS-Level and A-Level students across Kuwait, the GCC and internationally. We specialise in Physics, Chemistry, Biology, Maths and English, teaching the Cambridge (CAIE) and Edexcel specifications, with AQA also supported for Physics at AS and A-Level, using a single, proven method that consistently moves students up the grade boundaries.",
+      "Akbar Academy is a premium online and onsite tuition provider for IGCSE, AS-Level and A-Level students across Kuwait, the GCC and internationally. We specialise in Physics, Chemistry, Biology, Maths and English, teaching the Cambridge (CAIE), Edexcel and AQA specifications, using a single, proven method that consistently moves students up the grade boundaries.",
       "Founded by Kaleem Akbar, the academy was built on one belief: most students already work hard, what they lack is a clear system that turns that effort into marks. Instead of scattered past papers and ad-hoc tutoring, every Akbar Academy student follows a structured path: diagnose the real gaps, practise with purpose, integrate exam technique, and track progress with honest parent feedback every step of the way.",
     ],
   },
