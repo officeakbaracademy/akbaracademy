@@ -9,9 +9,12 @@ import {
   GraduationCap,
   Target,
   ClipboardList,
+  ClipboardCheck,
   LineChart,
   BookOpen,
   MonitorPlay,
+  Video,
+  TrendingUp,
   Trophy,
   Quote,
   Users,
@@ -45,11 +48,12 @@ import {
 const STEP_ICONS = [Target, ClipboardList, GraduationCap, LineChart];
 const boardShort = (slug) => boards.find((b) => b.slug === slug)?.short ?? slug;
 
-function Eyebrow({ children, className }) {
+function Eyebrow({ children, className, accent = "primary" }) {
   return (
     <p
       className={cn(
-        "text-xs font-semibold uppercase tracking-[0.16em] text-primary",
+        "text-xs font-semibold uppercase tracking-[0.16em]",
+        accent === "gold" ? "text-gold" : "text-primary",
         className
       )}
     >
@@ -58,10 +62,10 @@ function Eyebrow({ children, className }) {
   );
 }
 
-function SectionHeading({ eyebrow, title, lead, center = true, className }) {
+function SectionHeading({ eyebrow, title, lead, center = true, className, accent }) {
   return (
     <div className={cn(center && "mx-auto max-w-2xl text-center", className)}>
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      {eyebrow && <Eyebrow accent={accent}>{eyebrow}</Eyebrow>}
       <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
         {title}
       </h2>
@@ -212,11 +216,11 @@ export function Hero() {
 
 // 2 — TRUST STRIP (under hero) ------------------------------------------------
 const TRUST_ITEMS = [
-  { icon: GraduationCap, label: "British-qualified team" },
-  { icon: BookOpen, label: "Every exam board" },
-  { icon: MonitorPlay, label: "Online & onsite" },
-  { icon: LineChart, label: "A proven system" },
-  { icon: Trophy, label: "Free past papers" },
+  { icon: Video, label: "Live classes" },
+  { icon: ClipboardCheck, label: "Exam feedback" },
+  { icon: TrendingUp, label: "Live progress" },
+  { icon: MonitorPlay, label: "Recorded lessons" },
+  { icon: Target, label: "Exam-board prep" },
 ];
 
 export function TrustBar() {
@@ -224,12 +228,21 @@ export function TrustBar() {
     <section className="border-y border-border bg-muted/30">
       <Container className="py-6">
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 [&>*:last-child]:col-span-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-8 sm:gap-y-4 sm:[&>*:last-child]:col-span-1 lg:gap-x-9">
-          {TRUST_ITEMS.map(({ icon: Icon, label }) => (
+          {TRUST_ITEMS.map(({ icon: Icon, label }, i) => (
             <div
               key={label}
               className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-2.5 sm:text-left"
             >
-              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary text-white shadow-sm shadow-primary/30 sm:size-9">
+              <span
+                className={cn(
+                  "grid size-10 shrink-0 place-items-center rounded-full text-white shadow-sm shadow-primary/30 sm:size-9",
+                  // Uniform blue when stacked in the mobile grid; alternate to
+                  // gold only on the single desktop row so it reads as balanced.
+                  i % 2 === 1 &&
+                    "sm:bg-gold sm:text-gold-foreground sm:shadow-gold/30",
+                  "bg-primary"
+                )}
+              >
                 <Icon className="size-5 sm:size-[18px]" />
               </span>
               <span className="text-sm font-semibold text-foreground/90 sm:whitespace-nowrap">
@@ -286,7 +299,7 @@ export function About() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* LEFT — info */}
           <Reveal>
-            <Eyebrow className="text-left">About Akbar Academy</Eyebrow>
+            <Eyebrow accent="gold" className="text-left">About Akbar Academy</Eyebrow>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
               A class above the rest, by design
             </h2>
@@ -329,7 +342,7 @@ export function About() {
             />
             <div className="rounded-3xl border border-border bg-card p-6 shadow-xl shadow-black/5 sm:p-10">
               <div className="flex items-center gap-3.5">
-                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-primary text-white">
+                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-gold text-gold-foreground">
                   <Quote className="size-6" />
                 </span>
                 <div>
@@ -350,9 +363,14 @@ export function About() {
                   ["3,000+", "students"],
                   ["96%", "A* to B"],
                   ["4.9★", "rated"],
-                ].map(([v, l]) => (
+                ].map(([v, l], i) => (
                   <div key={l} className="min-w-0">
-                    <div className="font-heading text-lg font-extrabold leading-none text-primary sm:text-2xl">
+                    <div
+                      className={cn(
+                        "font-heading text-lg font-extrabold leading-none sm:text-2xl",
+                        i === 1 ? "text-gold" : "text-primary"
+                      )}
+                    >
                       {v}
                     </div>
                     <div className="text-xs text-muted-foreground">{l}</div>
@@ -397,7 +415,7 @@ export function Subjects() {
                   <div>
                     <h3 className="font-heading text-lg font-bold">{s.name}</h3>
                     <p className="mt-0.5 text-xs font-medium text-muted-foreground">
-                      GCSE, IGCSE, AS &amp; A-Level
+                      IGCSE, AS &amp; A-Level
                     </p>
                   </div>
                 </div>
@@ -480,7 +498,12 @@ export function Stats() {
                     key={s.label}
                     className="flex min-w-0 flex-col items-center gap-2.5 bg-card px-3 py-7 text-center sm:px-6 sm:py-9"
                   >
-                    <span className="grid size-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                    <span
+                      className={cn(
+                        "grid size-11 shrink-0 place-items-center rounded-full",
+                        i % 2 === 1 ? "bg-gold/15 text-gold" : "bg-primary/10 text-primary"
+                      )}
+                    >
                       <Icon className="size-5" />
                     </span>
                     <CountUp
@@ -507,6 +530,7 @@ export function SystemSection() {
     <section className="py-12 sm:py-16">
       <Container>
         <SectionHeading
+          accent="gold"
           eyebrow="The Akbar Academy System"
           title="A four-stage engine for real progress"
           lead="The same structured method behind every subject and every teacher."
@@ -515,16 +539,29 @@ export function SystemSection() {
         <div className="relative mt-16 hidden lg:block">
           <div
             aria-hidden
-            className="absolute left-[12.5%] right-[12.5%] top-8 h-0.5 bg-gradient-to-r from-primary/60 via-primary/50 to-primary/20"
+            className="absolute left-[12.5%] right-[12.5%] top-8 h-0.5 bg-gradient-to-r from-primary/70 via-primary/40 to-gold/70"
           />
           <div className="grid grid-cols-4 gap-6">
             {systemSteps.map((step, i) => {
               const Icon = STEP_ICONS[i];
+              const gold = i % 2 === 1;
               return (
                 <Reveal key={step.n} delay={i * 100} className="flex flex-col items-center text-center">
-                  <div className="relative z-10 grid size-16 place-items-center rounded-full border-2 border-primary bg-background text-primary shadow-sm">
+                  <div
+                    className={cn(
+                      "relative z-10 grid size-16 place-items-center rounded-full border-2 bg-background shadow-sm",
+                      gold ? "border-gold text-gold" : "border-primary text-primary"
+                    )}
+                  >
                     <Icon className="size-6" />
-                    <span className="absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                    <span
+                      className={cn(
+                        "absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full text-xs font-bold",
+                        gold
+                          ? "bg-gold text-gold-foreground"
+                          : "bg-primary text-primary-foreground"
+                      )}
+                    >
                       {step.n}
                     </span>
                   </div>
@@ -542,16 +579,29 @@ export function SystemSection() {
         <div className="relative mt-12 lg:hidden">
           <div
             aria-hidden
-            className="absolute bottom-8 left-8 top-8 w-0.5 bg-gradient-to-b from-primary/60 to-primary/20"
+            className="absolute bottom-8 left-8 top-8 w-0.5 bg-gradient-to-b from-primary/70 via-primary/40 to-gold/70"
           />
           <div className="space-y-8">
             {systemSteps.map((step, i) => {
               const Icon = STEP_ICONS[i];
+              const gold = i % 2 === 1;
               return (
                 <div key={step.n} className="relative flex gap-5">
-                  <div className="relative z-10 grid size-16 shrink-0 place-items-center rounded-full border-2 border-primary bg-background text-primary shadow-sm">
+                  <div
+                    className={cn(
+                      "relative z-10 grid size-16 shrink-0 place-items-center rounded-full border-2 bg-background shadow-sm",
+                      gold ? "border-gold text-gold" : "border-primary text-primary"
+                    )}
+                  >
                     <Icon className="size-6" />
-                    <span className="absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                    <span
+                      className={cn(
+                        "absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full text-xs font-bold",
+                        gold
+                          ? "bg-gold text-gold-foreground"
+                          : "bg-primary text-primary-foreground"
+                      )}
+                    >
                       {step.n}
                     </span>
                   </div>
@@ -722,7 +772,7 @@ export function PricingTeaser() {
         <Reveal className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/10 via-card to-card p-8 sm:p-12">
           <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
             <div className="max-w-xl">
-              <Eyebrow>Simple, transparent pricing</Eyebrow>
+              <Eyebrow accent="gold">Simple, transparent pricing</Eyebrow>
               <h2 className="mt-3 font-heading text-2xl font-bold tracking-tight sm:text-3xl">
                 One clear starting point, then choose what fits.
               </h2>

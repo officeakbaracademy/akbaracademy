@@ -19,7 +19,7 @@ export function SubjectsShowcase() {
     <section id="subjects" className="py-12 sm:py-16">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
             One platform, every subject
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
@@ -85,7 +85,7 @@ export function SubjectsShowcase() {
                     key={b}
                     className="flex items-start gap-2 text-sm leading-relaxed"
                   >
-                    <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <Check className="mt-0.5 size-4 shrink-0 text-gold" />
                     <span className="text-muted-foreground">
                       <span className="font-semibold text-foreground">
                         {boardName(b)}

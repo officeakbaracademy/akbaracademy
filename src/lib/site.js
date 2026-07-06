@@ -12,8 +12,8 @@ export const site = {
   url: "https://www.akbaracademy.co.uk",
   whatsapp: "https://wa.me/96567036380",
   whatsappLabel: "+965 6703 6380",
-  register: "https://akbaracademy.co.uk/register", // wire to student system
-  login: "https://akbaracademy.co.uk/login",
+  register: "https://www.akbaracademy.co.uk/?login=popup",
+  login: "https://www.akbaracademy.co.uk/?login=popup",
   email: "akbaracademy.co.uk@gmail.com",
   socials: {
     facebook: "https://www.facebook.com/akbaracademyofficial/",
@@ -32,13 +32,13 @@ export const site = {
 
 // Exam boards offered across subjects.
 export const boards = [
-  { slug: "cambridge", name: "Cambridge (CIE)", short: "Cambridge" },
+  { slug: "cambridge", name: "Cambridge (CAEI)", short: "Cambridge" },
   { slug: "edexcel", name: "Edexcel / Pearson", short: "Edexcel" },
-  { slug: "aqa", name: "AQA / OxfordAQA", short: "AQA" },
+  { slug: "aqa", name: "AQA", short: "AQA" },
 ];
 
 // Levels offered.
-export const levels = ["GCSE", "IGCSE", "AS-Level", "A-Level"];
+export const levels = ["IGCSE", "AS-Level", "A-Level"];
 
 // Subjects, the spine of the multi-subject platform.
 export const subjects = [
@@ -70,7 +70,7 @@ export const subjects = [
     tagline: "Structured mastery of every reaction, mole and mechanism.",
     blurb:
       "Organic, inorganic and physical chemistry taught as one connected system, with the calculations and practical skills the boards reward.",
-    boards: ["cambridge", "edexcel", "aqa"],
+    boards: ["cambridge", "edexcel"],
     live: true,
   },
   {
@@ -85,7 +85,7 @@ export const subjects = [
     tagline: "Clear, confident command of every system and process.",
     blurb:
       "Cells to ecosystems, taught for genuine understanding, plus the precise exam language markers are looking for.",
-    boards: ["cambridge", "edexcel", "aqa"],
+    boards: ["cambridge", "edexcel"],
     live: true,
   },
   {
@@ -100,7 +100,7 @@ export const subjects = [
     tagline: "Method, fluency and full-mark exam technique.",
     blurb:
       "Number, algebra, geometry and statistics built up step by step, with relentless past-paper practice so nothing in the exam is a surprise.",
-    boards: ["cambridge", "edexcel", "aqa"],
+    boards: ["cambridge", "edexcel"],
     live: true,
   },
   {
@@ -114,8 +114,8 @@ export const subjects = [
     char: "/assets/subject-english-char.png",
     tagline: "Reading, writing and analysis that reads like top-band work.",
     blurb:
-      "Language and Literature taught by an examiner and college counsellor, plus IELTS and university-application support.",
-    boards: ["cambridge", "edexcel", "aqa"],
+      "First Language and Second Language English taught by an experienced examiner, building the reading, writing and analysis skills that hit the top band.",
+    boards: ["cambridge", "edexcel"],
     live: true,
   },
 ];
@@ -215,7 +215,7 @@ export const team = [
     name: "Phil McComish",
     subject: "Physics",
     photo: "/assets/team-phil.jpg",
-    bio: "30+ years teaching. Examiner for Edexcel International A-Level and CIE A-Level, and co-author of a Cambridge University Press Physics book.",
+    bio: "30+ years teaching. Examiner for Edexcel International A-Level and Cambridge A-Level, and co-author of a Cambridge University Press Physics book.",
   },
   {
     name: "Michael Kwatia",
@@ -224,10 +224,10 @@ export const team = [
     bio: "Teaches Maths with a gift for making method and problem-solving click, backed by relentless past-paper practice.",
   },
   {
-    name: "Jav",
+    name: "Dan Javid",
     subject: "Chemistry",
     photo: "/assets/team-jav.jpg",
-    bio: "Chemistry specialist who teaches organic, inorganic and physical chemistry as one connected system, with the exam technique the boards reward.",
+    bio: "Edexcel IGCSE Chemistry and Biology specialist who teaches the calculations, mechanisms and exam technique the boards reward.",
   },
   {
     name: "Alex Robert",
@@ -350,7 +350,7 @@ export const stats = [
 export const faqs = [
   {
     q: "Which subjects and exam boards does Akbar Academy cover?",
-    a: "We teach Physics, Chemistry, Biology, Maths and English at GCSE, IGCSE, AS-Level and A-Level, across the Cambridge (CIE), Edexcel/Pearson and AQA/OxfordAQA boards. Every subject follows the same structured Akbar Academy system, so the quality is consistent whichever subject or board your child studies.",
+    a: "We teach Physics, Chemistry, Biology, Maths and English at IGCSE, AS-Level and A-Level, across the Cambridge (CAEI) and Edexcel/Pearson boards, with AQA also supported for Physics at AS and A-Level. Every subject follows the same structured Akbar Academy system, so the quality is consistent whichever subject or board your child studies.",
   },
   {
     q: "Are lessons online or in person?",
@@ -362,11 +362,11 @@ export const faqs = [
   },
   {
     q: "How do I get started?",
-    a: "Start with a one-off evaluation. We assess your child's current level, identify the gaps, and give you a clear target with a plan and direct parent feedback. From there you choose the programme that fits, online or onsite, once or twice a week, and the commitment length that suits you.",
+    a: "Start with a one-off paid evaluation session (KD 49, which also secures your child's place and covers a couple of lessons). We assess your child's current level, identify the gaps, and give you a clear target with a plan and direct parent feedback. From there you choose the programme that fits, online or onsite, once or twice a week, and the commitment length that suits you.",
   },
   {
     q: "How much does tuition cost?",
-    a: "Programmes start from KD 96 per month for Essentials, with an Elite tier for the full premium ecosystem. Committing to Half-Term, Semester or Full-Year blocks saves 5%, 10% or 15%. You can see transparent, subject-by-subject pricing on the Pricing page.",
+    a: "Tuition starts from KD 82 per month online, and from KD 102 per month for face-to-face or hybrid, typically 8 lessons a month of 2 hours each (around 16 teaching hours). You can see transparent, subject-by-subject pricing on the Pricing page. All fees are in Kuwaiti Dinar.",
   },
   {
     q: "Do you provide past papers and revision resources?",
@@ -381,7 +381,7 @@ export const seoSections = [
     id: "premium-tuition",
     title: "Premium IGCSE & A-Level tuition across Kuwait and the GCC",
     body: [
-      "Akbar Academy is a premium online and onsite tuition provider for IGCSE, GCSE, AS-Level and A-Level students across Kuwait, the GCC and internationally. We specialise in Physics, Chemistry, Biology, Maths and English, teaching the Cambridge (CIE), Edexcel and AQA/OxfordAQA specifications with a single, proven method that consistently moves students up the grade boundaries.",
+      "Akbar Academy is a premium online and onsite tuition provider for IGCSE, AS-Level and A-Level students across Kuwait, the GCC and internationally. We specialise in Physics, Chemistry, Biology, Maths and English, teaching the Cambridge (CAEI) and Edexcel specifications, with AQA also supported for Physics at AS and A-Level, using a single, proven method that consistently moves students up the grade boundaries.",
       "Founded by Kaleem Akbar, the academy was built on one belief: most students already work hard, what they lack is a clear system that turns that effort into marks. Instead of scattered past papers and ad-hoc tutoring, every Akbar Academy student follows a structured path: diagnose the real gaps, practise with purpose, integrate exam technique, and track progress with honest parent feedback every step of the way.",
     ],
   },
@@ -397,7 +397,7 @@ export const seoSections = [
     id: "results",
     title: "A track record of real results",
     body: [
-      "Akbar Academy has taught over 3,000 students, with 96% achieving A* to B and 94% achieving A* to C at IGCSE. We hold 4.9-star ratings on both Trustpilot and Google, and our students routinely record dramatic grade jumps, from U to A, from C to A*, and from failing marks to full university offers, including places at Oxbridge and Ivy League universities.",
+      "At IGCSE, 96% of Akbar Academy students achieve A* to B, against 64% A* to B for Cambridge worldwide, a 32% performance difference. Our students routinely record dramatic grade jumps, from U to A, from C to A*, and from failing marks to full university offers, including places at Oxbridge and Ivy League universities. We hold 4.9-star ratings on both Trustpilot and Google.",
       "These results are not accidental. They come from a repeatable system, qualified specialist teachers, and a genuine partnership with parents, the combination that lets us describe ourselves, honestly, as a class above the rest.",
     ],
   },
