@@ -30,6 +30,17 @@ export const site = {
   },
 };
 
+// Top announcement ticker (scrolls across the very top of every page).
+export const announcements = [
+  {
+    strong: "September intake now open",
+    post: ", evaluation places are limited and filling weekly",
+  },
+  { strong: "Cambridge, Edexcel and AQA" },
+  { pre: "Led by a ", strong: "Cambridge and Edexcel endorsed author" },
+  { strong: "Live online across the GCC" },
+];
+
 // Exam boards offered across subjects.
 export const boards = [
   { slug: "cambridge", name: "Cambridge (CAIE)", short: "Cambridge" },
