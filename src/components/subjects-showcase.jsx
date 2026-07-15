@@ -1,142 +1,121 @@
-"use client";
-
-import * as React from "react";
 import Image from "next/image";
-import { ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { subjects, boards, levels } from "@/lib/site";
+import { subjects, boards } from "@/lib/site";
 import { Container } from "@/components/container";
-import { ButtonLink } from "@/components/button-link";
+import { Reveal } from "@/components/reveal";
 
-const boardName = (slug) => boards.find((b) => b.slug === slug)?.name ?? slug;
+const boardShort = (slug) => boards.find((b) => b.slug === slug)?.short ?? slug;
 
 export function SubjectsShowcase() {
-  const [active, setActive] = React.useState(0);
-  const s = subjects[active];
-
   return (
     <section id="subjects" className="py-12 sm:py-16">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-            One platform, every subject
+            What we teach
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
             Five subjects, one proven system
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            The same structured method behind every subject, taught by a
-            specialist who knows exactly what the boards reward.
+            The same structured method behind every subject, each taught by a
+            specialist who knows precisely what the boards reward.
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
-          {subjects.map((sub, i) => (
-            <button
-              key={sub.slug}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-pressed={i === active}
-              className={cn(
-                "rounded-full px-5 py-2.5 text-sm font-semibold transition-colors",
-                i === active
-                  ? "bg-primary text-primary-foreground shadow-sm shadow-primary/30"
-                  : "border border-border text-muted-foreground hover:border-foreground/20 hover:text-foreground"
-              )}
-            >
-              {sub.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Feature panel */}
-        <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card">
-          <div className="grid lg:grid-cols-2">
-            {/* Content */}
-            <div
-              key={active}
-              className="animate-in fade-in slide-in-from-bottom-1 order-2 p-8 duration-300 sm:p-10 lg:order-1"
-            >
-              <h3 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
-                {s.name}
-              </h3>
-              <p className="mt-2 text-base font-medium text-gold">
-                {s.tagline}
-              </p>
-
-              <p className="mt-5 text-muted-foreground">{s.blurb}</p>
-
-              {/* Levels and boards as clean, non-interactive info rows */}
-              <dl className="mt-6 space-y-2.5">
-                <div className="flex items-baseline gap-3">
-                  <dt className="w-20 shrink-0 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Levels
-                  </dt>
-                  <dd className="text-sm font-medium text-foreground/90">
-                    {levels.join(", ")}
-                  </dd>
-                </div>
-                <div className="flex items-baseline gap-3">
-                  <dt className="w-20 shrink-0 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Boards
-                  </dt>
-                  <dd className="text-sm font-medium text-foreground/90">
-                    {s.boards.map(boardName).join(", ")}
-                  </dd>
-                </div>
-              </dl>
-
-              {/* One clean summary line, no repetition */}
-              <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
-                <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                Full syllabus, past papers, mark schemes and exam technique, all
-                in one place.
-              </p>
-
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <ButtonLink size="lg" className="h-11 px-6" href={`/courses/${s.slug}`}>
-                  Explore {s.name}
-                </ButtonLink>
-                <ButtonLink
-                  href="/past-papers"
-                  variant="ghost"
-                  className="text-primary"
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {subjects.map((s, i) => {
+            const flagship = s.slug === "physics";
+            return (
+              <Reveal key={s.slug} delay={i * 60} className="h-full">
+                <Link
+                  href={`/courses/${s.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/40"
                 >
-                  Past papers
-                  <ArrowRight className="size-4" />
-                </ButtonLink>
-              </div>
-            </div>
+                  {/* Mascot on a soft branded panel */}
+                  <div className="relative flex h-40 items-center justify-center border-b border-border bg-gradient-to-br from-primary/[0.07] via-transparent to-gold/[0.06]">
+                    <Image
+                      src={s.char}
+                      alt={`${s.name} character`}
+                      width={160}
+                      height={160}
+                      className="max-h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="eager"
+                      unoptimized
+                    />
+                    {flagship && (
+                      <span className="absolute left-3 top-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold-foreground">
+                        Author-led
+                      </span>
+                    )}
+                  </div>
 
-            {/* Visual */}
-            <div className="relative order-1 flex min-h-[240px] items-center justify-center overflow-hidden border-b border-border bg-muted/40 p-8 lg:order-2 lg:min-h-[420px] lg:border-b-0 lg:border-l">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute size-64 rounded-full bg-primary/15 blur-3xl lg:size-80"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute right-8 top-8 size-40 rounded-full bg-gold/15 blur-2xl"
-              />
-              <Image
-                key={s.slug}
-                src={s.char}
-                alt={`${s.name} mascot`}
-                width={360}
-                height={360}
-                className="animate-in fade-in zoom-in-95 relative h-auto max-h-[200px] w-auto object-contain drop-shadow-xl duration-300 lg:max-h-[340px]"
-              />
-            </div>
-          </div>
-        </div>
+                  {/* Details */}
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="font-heading text-xl font-bold tracking-tight">
+                        {s.name}
+                      </h3>
+                      <span className="shrink-0 text-xs font-semibold text-muted-foreground">
+                        {s.levels.join(", ")}
+                      </span>
+                    </div>
 
-        <div className="mt-8 text-center">
-          <ButtonLink variant="outline" href="/courses">
-            Browse all courses
-            <ArrowRight className="size-4" />
-          </ButtonLink>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                      {s.blurb}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {s.boards.map((b) => (
+                        <span
+                          key={b}
+                          className={cn(
+                            "rounded border px-1.5 py-0.5 text-[11px] font-medium",
+                            b === "aqa"
+                              ? "border-gold/30 text-gold"
+                              : "border-border text-muted-foreground"
+                          )}
+                        >
+                          {boardShort(b)}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t border-border pt-3 text-xs text-muted-foreground">
+                      <span>
+                        Taught by{" "}
+                        <span className="font-semibold text-foreground/90">
+                          {s.lead}
+                        </span>
+                      </span>
+                      <ArrowRight className="size-4 text-primary opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
+
+          {/* Browse-all card completes the 3 x 2 grid */}
+          <Reveal delay={subjects.length * 60} className="h-full">
+            <Link
+              href="/courses"
+              className="flex h-full min-h-[240px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border bg-muted/20 p-6 text-center transition-colors hover:border-primary/40 hover:bg-muted/40"
+            >
+              <span className="grid size-12 place-items-center rounded-full bg-primary/10 text-primary">
+                <ArrowRight className="size-5" />
+              </span>
+              <span className="font-heading text-lg font-bold">
+                Browse all courses
+              </span>
+              <span className="text-sm text-muted-foreground">
+                By subject, board and level
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </Container>
     </section>

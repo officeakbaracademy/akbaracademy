@@ -19,10 +19,17 @@ import {
   Quote,
   Users,
   BadgeCheck,
+  MapPin,
+  Home,
+  Globe,
+  Network,
+  Search,
+  MessageSquare,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/container";
+import { HeroTrust } from "@/components/hero-trust";
 import { Reveal } from "@/components/reveal";
 import { ButtonLink } from "@/components/button-link";
 import { CountUp } from "@/components/count-up";
@@ -89,7 +96,7 @@ export function Hero() {
           {/* LEFT — copy */}
           <Reveal className="py-14 lg:py-24">
             <span className="inline-flex items-center rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-primary backdrop-blur">
-              Premium IGCSE &amp; A-Level tuition
+              Premium IGCSE &amp; A-Level tuition across Kuwait and the GCC
             </span>
 
             <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.04] tracking-tight text-balance sm:text-5xl xl:text-6xl">
@@ -140,13 +147,17 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            {/* <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <span className="font-medium text-foreground/80">
-                Cambridge, Edexcel &amp; AQA
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/80">
+                <MapPin className="size-4 text-gold" />
+                Live online across the GCC
               </span>
               <span className="hidden h-4 w-px bg-border sm:block" />
-              <span>British-qualified examiners &amp; published authors</span>
-            </div> */}
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/80">
+                <Home className="size-4 text-gold" />
+                On-site hub in Kuwait
+              </span>
+            </div>
           </Reveal>
 
           {/* RIGHT — student cut-out on a blob + floating card */}
@@ -177,38 +188,28 @@ export function Hero() {
                 />
               </div>
 
-              {/* single floating card — avatars + proof */}
-              <div className="animate-floaty absolute bottom-10 left-0 flex items-center gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-xl shadow-black/10 backdrop-blur sm:-left-6">
-                <span className="flex -space-x-2.5">
-                  {team.slice(0, 3).map((t) => (
-                    <Image
-                      key={t.name}
-                      src={t.photo}
-                      alt=""
-                      width={30}
-                      height={30}
-                      className="size-8 rounded-full border-2 border-card object-cover"
-                    />
-                  ))}
+              {/* single floating card — headline result */}
+              {/* <div className="animate-floaty absolute bottom-10 left-0 flex items-center gap-3.5 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-xl shadow-black/10 backdrop-blur sm:-left-6">
+                <span className="font-heading text-3xl font-extrabold leading-none text-primary">
+                  96%
                 </span>
+                <span className="h-9 w-px bg-border" />
                 <span>
-                  <span className="block font-heading text-lg font-extrabold leading-none">
-                    <div className="flex items-center gap-1">
-                 <Star className="size-3 fill-gold text-gold" />
-                 <Star className="size-3 fill-gold text-gold" />
-                 <Star className="size-3 fill-gold text-gold" />
-                 <Star className="size-3 fill-gold text-gold" />
-                 <Star className="size-3 fill-gold text-gold" />
-</div>
+                  <span className="block text-sm font-bold leading-tight">
+                    A* to B
                   </span>
-                  <span className="mt-0.5 flex items-center gap-1 text-xs  font-extrabold text-muted-foreground">
-                        3,000+ students taught
+                  <span className="mt-0.5 block text-xs text-muted-foreground">
+                    at IGCSE
                   </span>
                 </span>
-              </div>
+              </div> */}
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={200}>
+          <HeroTrust />
+        </Reveal>
       </Container>
     </section>
   );
@@ -225,7 +226,7 @@ const TRUST_ITEMS = [
 
 export function TrustBar() {
   return (
-    <section className="border-y border-border bg-muted/30">
+    <section className="border-y border-border">
       <Container className="py-6">
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 [&>*:last-child]:col-span-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-8 sm:gap-y-4 sm:[&>*:last-child]:col-span-1 lg:gap-x-9">
           {TRUST_ITEMS.map(({ icon: Icon, label }, i) => (
@@ -235,11 +236,11 @@ export function TrustBar() {
             >
               <span
                 className={cn(
-                  "grid size-10 shrink-0 place-items-center rounded-full text-white shadow-sm sm:size-9",
+                  "grid size-10 shrink-0 place-items-center rounded-full text-white sm:size-9",
                   // Alternate blue/gold at every screen size.
                   i % 2 === 1
-                    ? "bg-gold text-gold-foreground shadow-gold/30"
-                    : "bg-primary shadow-primary/30"
+                    ? "bg-gold text-gold-foreground"
+                    : "bg-primary"
                 )}
               >
                 <Icon className="size-5 sm:size-[18px]" />
@@ -291,33 +292,44 @@ const ABOUT_POINTS = [
   "A proven, structured system",
 ];
 
+const FOUNDER_STATS = [
+  { icon: Trophy, value: "20+", label: "Years experience" },
+  { icon: Users, value: "3,000+", label: "Students taught" },
+  { icon: BookOpen, value: "5 books", label: "Endorsed author" },
+  { icon: Globe, value: "UK & Int.", label: "Curriculum expert" },
+];
+
 export function About() {
   return (
     <section id="about" className="py-12 sm:py-16">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* LEFT — info */}
+          {/* LEFT — founder text */}
           <Reveal>
-            <Eyebrow accent="gold" className="text-left">About Akbar Academy</Eyebrow>
-            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-              A class above the rest, by design
+            <Eyebrow accent="gold" className="text-left">
+              Founder &amp; lead teacher
+            </Eyebrow>
+            <h2 className="mt-3 font-heading text-4xl font-extrabold tracking-tight text-balance sm:text-5xl">
+              Mr Kaleem Akbar
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground text-pretty">
-              Akbar Academy was founded by Kaleem Akbar to solve one problem. Too
-              many students work hard but never see it in the grade. We replace
-              scattered tutoring and random past papers with one structured
-              system, taught by British-qualified examiners and published
-              authors who know exactly what each board rewards.
+            <p className="mt-3 text-lg font-bold text-primary">
+              Cambridge and Edexcel endorsed author, founder and Physics
+              specialist.
             </p>
-
-            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {ABOUT_POINTS.map((t) => (
-                <li key={t} className="flex items-start gap-2 text-sm font-medium">
-                  <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-5 space-y-4 text-lg text-muted-foreground text-pretty">
+              <p>
+                Teaching students across the GCC since 2006, Mr Kaleem Akbar has
+                helped over 3,000 reach top grades with exam-focused, structured
+                teaching.
+              </p>
+              <p>
+                Author of{" "}
+                <span className="font-semibold text-foreground">
+                  five endorsed IGCSE Physics textbooks
+                </span>
+                , his method is at the heart of everything Akbar Academy teaches.
+              </p>
+            </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <ButtonLink size="lg" className="h-11 px-6" href="/about">
@@ -333,46 +345,24 @@ export function About() {
             </div>
           </Reveal>
 
-          {/* RIGHT — founder's note card (no photo) */}
+          {/* RIGHT — credentials stat card (2x2) */}
           <Reveal delay={120} className="relative">
-            <div
-              aria-hidden
-              className="absolute -inset-3 -z-10 rounded-[2.5rem] bg-gradient-to-br from-primary/15 to-gold/15 blur-2xl"
-            />
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-xl shadow-black/5 sm:p-10">
-              <div className="flex items-center gap-3.5">
-                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-gold text-gold-foreground">
-                  <Quote className="size-6" />
-                </span>
-                <div>
-                  <div className="font-heading text-lg font-bold">Kaleem Akbar</div>
-                  <div className="text-sm text-muted-foreground">
-                    Founder, Akbar Academy
-                  </div>
-                </div>
-              </div>
-
-              <blockquote className="mt-6 font-heading text-lg font-semibold leading-snug text-balance sm:text-xl lg:text-2xl">
-                Most students already work hard. What they lack is a clear system
-                that turns effort into marks. That&rsquo;s exactly what we built.
-              </blockquote>
-
-              <div className="mt-7 grid grid-cols-3 gap-3 border-t border-border pt-6 text-center">
-                {[
-                  ["3,000+", "students"],
-                  ["96%", "A* to B"],
-                  ["4.9★", "rated"],
-                ].map(([v, l], i) => (
-                  <div key={l} className="min-w-0">
-                    <div
-                      className={cn(
-                        "font-heading text-lg font-extrabold leading-none sm:text-2xl",
-                        i === 1 ? "text-gold" : "text-primary"
-                      )}
-                    >
-                      {v}
+            <div className="overflow-hidden rounded-3xl border border-border">
+              <div className="grid grid-cols-2 gap-px bg-border">
+                {FOUNDER_STATS.map(({ icon: Icon, value, label }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center gap-2 bg-card px-4 py-8 text-center"
+                  >
+                    <span className="grid size-11 place-items-center rounded-xl bg-gold/10 text-gold ring-1 ring-gold/15">
+                      <Icon className="size-5" />
+                    </span>
+                    <div className="mt-1 font-heading text-2xl font-extrabold leading-none">
+                      {value}
                     </div>
-                    <div className="text-xs text-muted-foreground">{l}</div>
+                    <div className="text-xs font-medium text-muted-foreground">
+                      {label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -399,7 +389,7 @@ export function Subjects() {
             <Reveal key={s.slug} delay={i * 60}>
               <Link
                 href={`/courses/${s.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5"
+                className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
               >
                 <div className="flex items-center gap-3.5">
                   <span className="relative size-16 shrink-0 rounded-xl bg-white ring-1 ring-black/5">
@@ -456,21 +446,69 @@ export function Subjects() {
 }
 
 // 4 — PROBLEM / SOLUTION ------------------------------------------------------
+const PROBLEMS = [
+  {
+    icon: Network,
+    title: "Weak foundations",
+    desc: "Small gaps grow into big ones. Confidence drops when the basics are not fixed first.",
+  },
+  {
+    icon: Search,
+    title: "Unstructured revision",
+    desc: "Students revise randomly and miss the topics that come up most in exams.",
+  },
+  {
+    icon: Target,
+    title: "Poor exam technique",
+    desc: "Marks are lost on timing, exam wording and not answering the way examiners want.",
+  },
+  {
+    icon: MessageSquare,
+    title: "No feedback loop",
+    desc: "Work is not marked properly, so the same mistakes repeat and nobody knows what to fix next.",
+  },
+];
+
 export function Problem() {
   return (
-    <section className="border-y border-border bg-muted/30 py-12 sm:py-16">
+    <section className="border-y border-border py-12 sm:py-16">
       <Container>
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-balance sm:text-3xl">
-            Most students work hard.{" "}
-            <span className="text-gold">Few know what to do next.</span>
-          </h2>
-          <p className="mt-5 text-lg text-muted-foreground text-pretty">
-            Endless past papers, scattered resources, no clear plan. Effort without
-            a system is exhausting, and it rarely shows up in the grade. That&apos;s
-            the gap we close, in every subject, every week.
-          </p>
-        </Reveal>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* LEFT — the problem */}
+          <Reveal>
+            <Eyebrow accent="gold" className="text-left">
+              The problem we solve
+            </Eyebrow>
+            <h2 className="mt-3 font-heading text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
+              Most students work hard.{" "}
+              <span className="text-gold">Few know what to do next.</span>
+            </h2>
+            <p className="mt-5 text-lg text-muted-foreground text-pretty">
+              Wasted time, weak exam skills, slow progress. Akbar Academy
+              replaces guessing with a clear, step-by-step system that produces
+              real results.
+            </p>
+          </Reveal>
+
+          {/* RIGHT — the four failure points */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {PROBLEMS.map(({ icon: Icon, title, desc }, i) => (
+              <Reveal
+                key={title}
+                delay={i * 80}
+                className="rounded-2xl border border-border bg-card p-5 transition-colors hover:border-gold/40"
+              >
+                <span className="grid size-10 place-items-center rounded-xl bg-gold/10 text-gold ring-1 ring-gold/15">
+                  <Icon className="size-5" />
+                </span>
+                <h3 className="mt-4 font-heading text-base font-bold">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {desc}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </Container>
     </section>
   );
@@ -484,11 +522,7 @@ export function Stats() {
     <section className="pb-5 md:pb-12 md:pt-8">
       <Container>
         <Reveal className="relative">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-10 -inset-y-4 -z-10 rounded-[3rem] bg-gradient-to-r from-primary/12 via-transparent to-gold/12 blur-2xl"
-          />
-          <div className="overflow-hidden rounded-3xl border border-border shadow-sm shadow-black/5">
+          <div className="overflow-hidden rounded-3xl border border-border">
             <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-4">
               {stats.map((s, i) => {
                 const Icon = STAT_ICONS[i];
@@ -542,25 +576,16 @@ export function SystemSection() {
           />
           <div className="grid grid-cols-4 gap-6">
             {systemSteps.map((step, i) => {
-              const Icon = STEP_ICONS[i];
               const gold = i % 2 === 1;
               return (
                 <Reveal key={step.n} delay={i * 100} className="flex flex-col items-center text-center">
                   <div
                     className={cn(
-                      "relative z-10 grid size-16 place-items-center rounded-full border-2 bg-background shadow-sm",
+                      "relative z-10 grid size-16 place-items-center rounded-full border-2 bg-background",
                       gold ? "border-gold text-gold" : "border-primary text-primary"
                     )}
                   >
-                    <Icon className="size-6" />
-                    <span
-                      className={cn(
-                        "absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full text-xs font-bold",
-                        gold
-                          ? "bg-gold text-gold-foreground"
-                          : "bg-primary text-primary-foreground"
-                      )}
-                    >
+                    <span className="font-heading text-2xl font-extrabold leading-none">
                       {step.n}
                     </span>
                   </div>
@@ -582,25 +607,16 @@ export function SystemSection() {
           />
           <div className="space-y-8">
             {systemSteps.map((step, i) => {
-              const Icon = STEP_ICONS[i];
               const gold = i % 2 === 1;
               return (
                 <div key={step.n} className="relative flex gap-5">
                   <div
                     className={cn(
-                      "relative z-10 grid size-16 shrink-0 place-items-center rounded-full border-2 bg-background shadow-sm",
+                      "relative z-10 grid size-16 shrink-0 place-items-center rounded-full border-2 bg-background",
                       gold ? "border-gold text-gold" : "border-primary text-primary"
                     )}
                   >
-                    <Icon className="size-6" />
-                    <span
-                      className={cn(
-                        "absolute -right-1.5 -top-1.5 grid size-6 place-items-center rounded-full text-xs font-bold",
-                        gold
-                          ? "bg-gold text-gold-foreground"
-                          : "bg-primary text-primary-foreground"
-                      )}
-                    >
+                    <span className="font-heading text-2xl font-extrabold leading-none">
                       {step.n}
                     </span>
                   </div>
@@ -621,7 +637,7 @@ export function SystemSection() {
 // 7 — COMPARISON --------------------------------------------------------------
 export function Comparison() {
   return (
-    <section className="border-y border-border bg-muted/30 py-12 sm:py-16">
+    <section className="border-y border-border py-12 sm:py-16">
       <Container>
         <SectionHeading
           eyebrow="How we compare"
@@ -868,7 +884,7 @@ export function SeoContent() {
 // 12 — FAQ --------------------------------------------------------------------
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-border bg-muted/30 py-12 sm:py-16">
+    <section id="faq" className="border-t border-border py-12 sm:py-16">
       <Container className="max-w-3xl">
         <SectionHeading
           eyebrow="Frequently asked"
@@ -896,7 +912,7 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden pb-2 md:pb-2 md:pt-5">
+    <section className="relative overflow-hidden py-16 sm:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(55%_55%_at_50%_45%,#000,transparent)]"

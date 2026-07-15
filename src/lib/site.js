@@ -62,10 +62,14 @@ export const subjects = [
     logo: "/assets/subject-physics-black.png",
     logoDark: "/assets/subject-physics-white.png",
     char: "/assets/subject-physics-char.png",
-    tagline: "Concepts that finally click, and marks that follow.",
+    tagline: "Led by our founder and published author, Mr Akbar.",
     blurb:
-      "From forces and electricity to nuclear physics, we make the hardest ideas intuitive and drill the exam technique that turns understanding into A*s.",
+      "From mechanics to nuclear physics, taught around exactly how marks are won. Our flagship subject, built on the method behind five endorsed textbooks.",
+    levels: ["IGCSE", "AS", "A2"],
     boards: ["cambridge", "edexcel", "aqa"],
+    boardNote: "Cambridge and Edexcel at IGCSE, plus AQA at AS and A Level.",
+    lead: "Mr Akbar and Mr McComish",
+    boardsFull: 3,
     live: true,
     featured: true,
   },
@@ -80,8 +84,10 @@ export const subjects = [
     char: "/assets/subject-chemistry-char.png",
     tagline: "Structured mastery of every reaction, mole and mechanism.",
     blurb:
-      "Organic, inorganic and physical chemistry taught as one connected system, with the calculations and practical skills the boards reward.",
-    boards: ["cambridge", "edexcel", "aqa"],
+      "Organic, inorganic and physical chemistry taught as one connected system, with the calculations and practical skills examiners reward.",
+    levels: ["IGCSE", "AS"],
+    boards: ["cambridge", "edexcel"],
+    lead: "Mr Jav",
     live: true,
   },
   {
@@ -95,8 +101,10 @@ export const subjects = [
     char: "/assets/subject-biology-char.png",
     tagline: "Clear, confident command of every system and process.",
     blurb:
-      "Cells to ecosystems, taught for genuine understanding, plus the precise exam language markers are looking for.",
-    boards: ["cambridge", "edexcel", "aqa"],
+      "From cells to whole systems, taught for genuine understanding, plus the precise exam language markers are looking for.",
+    levels: ["IGCSE", "AS"],
+    boards: ["cambridge", "edexcel"],
+    lead: "Mr Alex Robert",
     live: true,
   },
   {
@@ -110,8 +118,10 @@ export const subjects = [
     char: "/assets/subject-maths-char.png",
     tagline: "Method, fluency and full-mark exam technique.",
     blurb:
-      "Number, algebra, geometry and statistics built up step by step, with relentless past-paper practice so nothing in the exam is a surprise.",
-    boards: ["cambridge", "edexcel", "aqa"],
+      "Number, algebra, geometry and statistics built up step by step, until the method is second nature and nothing in the exam feels unfamiliar.",
+    levels: ["IGCSE", "AS"],
+    boards: ["cambridge", "edexcel"],
+    lead: "Mr Michael Kwatia",
     live: true,
   },
   {
@@ -125,8 +135,10 @@ export const subjects = [
     char: "/assets/subject-english-char.png",
     tagline: "Reading, writing and analysis that reads like top-band work.",
     blurb:
-      "First Language and Second Language English taught by an experienced examiner, building the reading, writing and analysis skills that hit the top band.",
-    boards: ["cambridge", "edexcel", "aqa"],
+      "First and Second Language English taught by an experienced examiner, building the reading, writing and analysis skills that hit the top band.",
+    levels: ["IGCSE"],
+    boards: ["cambridge", "edexcel"],
+    lead: "Ms George Dixon",
     live: true,
   },
 ];
@@ -172,6 +184,64 @@ export const resourceCategories = [
   },
 ];
 
+// Tuition packages (homepage "Packages to suit you" section).
+export const packages = [
+  {
+    name: "Live Classroom & Online Classes",
+    icon: "GraduationCap",
+    featured: true,
+    points: [
+      "Tailored live sessions with Mr Kaleem Akbar",
+      "Interactive participation",
+      "Full access to all resources and learner support",
+    ],
+  },
+  {
+    name: "Virtual Learning Sessions",
+    icon: "MonitorPlay",
+    points: [
+      "Choose when and where to study",
+      "Study at your own pace",
+      "Select the modules you want",
+    ],
+  },
+  {
+    name: "Ace My Exams",
+    icon: "Award",
+    points: [
+      "All the past paper resources you need to get the grade you deserve",
+    ],
+  },
+  {
+    name: "Self Study",
+    icon: "BookOpen",
+    points: ["Select either Cambridge, Edexcel or AQA books"],
+  },
+];
+
+// "What's included in every course" lists.
+export const includedEssentials = [
+  "Specification-mapped lessons, every topic on the syllabus",
+  "Live worked examples and model answers every session",
+  "Weekly quizzes and end-of-topic assessments",
+  "Past paper practice with mark scheme review",
+  "Notes and books available to purchase",
+  "Half-term progress reports to parents",
+  "Full lesson recording access when absent",
+];
+
+export const includedElite = [
+  { text: "Everything in Essentials, plus:", strong: true },
+  { text: "Full lesson recordings, every session, not just absences" },
+  {
+    text: "Free access to the Akbar Academy app (recap videos, PowerPoints, classified mark schemes, extended past paper library)",
+  },
+  { text: "Notes and books included, no extra charge" },
+  { text: "Access to Exam Wizard and AI Tutor" },
+  { text: "Weekly progress updates to parents" },
+  { text: "Priority marking and feedback turnaround" },
+];
+
 // The four-stage method.
 export const systemSteps = [
   {
@@ -187,7 +257,7 @@ export const systemSteps = [
   {
     n: 3,
     title: "Exam integration",
-    desc: "Past-paper technique woven in, so knowledge converts into marks.",
+    desc: "Exam technique woven in, so real understanding converts into marks.",
   },
   {
     n: 4,
@@ -196,21 +266,89 @@ export const systemSteps = [
   },
 ];
 
-// Comparison rows.
+// Comparison rows ("Why Akbar Academy gets better results").
 export const comparison = [
-  { label: "A clear, structured plan", us: "Built in", them: "Ad-hoc" },
-  { label: "British-qualified examiners", us: "Yes", them: "Rarely" },
-  { label: "Exam technique built in", us: "Every lesson", them: "Hit & miss" },
   {
-    label: "Progress tracking & parent feedback",
-    us: "Always",
-    them: "Seldom",
+    icon: "User",
+    label: "Experienced specialist teachers",
+    us: "Top 4% subject experts",
+    them: "Generalist tutors",
   },
-  { label: "Free past papers & resources", us: "All in one place", them: "Scattered" },
   {
-    label: "One platform, every subject",
-    us: "Physics to English",
-    them: "One tutor, one subject",
+    icon: "Package",
+    label: "Personalised mastery plans",
+    us: "Built for your child",
+    them: "One-size-fits-all",
+  },
+  {
+    icon: "Users",
+    label: "Small group focus",
+    us: "Kept intentionally small",
+    them: "Large groups",
+  },
+  {
+    icon: "Pencil",
+    label: "Weekly feedback & tracking",
+    us: "Every single week",
+    them: "Rare or inconsistent",
+  },
+  {
+    icon: "Clock",
+    label: "Exam strategy built in",
+    us: "From day one",
+    them: "Last-minute focus",
+  },
+  {
+    icon: "MessageSquare",
+    label: "Live progress via the parent app",
+    us: "Always informed",
+    them: "Minimal communication",
+  },
+];
+
+// Evaluation offer + the four course types (homepage pricing section).
+export const evaluation = {
+  name: "Start with an evaluation",
+  price: "49",
+  currency: "KD",
+  badge: "Start here",
+  desc: "2 to 4 lessons. Full academic assessment. Detailed parent report. We identify exactly where your child is and which course type suits them, before you commit to monthly fees.",
+};
+
+export const courseTypes = [
+  {
+    name: "Full Course",
+    tag: "Standard",
+    badge: "Most common",
+    featured: true,
+    perWeek: "2",
+    perMonth: "8 lessons / month",
+    desc: "The complete IGCSE or A Level course, Cambridge, Edexcel or Oxford International AQA, taught in one year. Two lessons per week, eight lessons per month.",
+    who: "All IGCSE and A Level students",
+  },
+  {
+    name: "Accelerated",
+    tag: "Highly motivated",
+    perWeek: "1",
+    perMonth: "4 lessons / month",
+    desc: "The same full two-year IGCSE course, covered in half the lessons. One lesson per week, covering everything the full course covers. No minimum grade required to start.",
+    who: "Commitment over grades",
+  },
+  {
+    name: "Half Syllabus",
+    tag: "First-year IGCSE",
+    perWeek: "1",
+    perMonth: "4 lessons / month",
+    desc: "First-year IGCSE content only. Ideal for students who find the full pace overwhelming. One lesson per week, working through the syllabus slowly and thoroughly.",
+    who: "Cambridge, Edexcel or Oxford International AQA",
+  },
+  {
+    name: "Edexcel Modular",
+    tag: "Year 10 or 11",
+    perWeek: "1",
+    perMonth: "4 lessons / month",
+    desc: "One year at a time, first-year content in year one and second-year content in year two. One lesson per week per year. Ideal for students on the modular Edexcel route.",
+    who: "Edexcel only, one year at a time",
   },
 ];
 
@@ -306,7 +444,7 @@ export const tickerReviews = [
     from: "5",
     to: "9",
     subject: "Biology",
-    quote: "The past-paper technique is what got me the grade.",
+    quote: "Finally understanding the topics is what got me the grade.",
     name: "Maya",
     role: "Student",
   },

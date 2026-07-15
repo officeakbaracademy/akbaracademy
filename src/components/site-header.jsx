@@ -280,7 +280,7 @@ export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background shadow-sm shadow-black/5">
+    <header className="sticky top-0 z-50 border-b border-border bg-background">
       <Container className="flex h-20 items-center justify-between gap-3 lg:h-[82px]">
         <Logo priority />
 

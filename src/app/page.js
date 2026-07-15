@@ -1,18 +1,22 @@
 import {
   Hero,
-  TrustBar,
   About,
   Problem,
   Stats,
   SystemSection,
-  Comparison,
   Reviews,
-  PricingTeaser,
   Faq,
   FinalCta,
 } from "@/components/home-sections";
 import { SubjectsShowcase } from "@/components/subjects-showcase";
 import { TeamCarousel } from "@/components/team-carousel";
+import { WhyAkbar } from "@/components/why-akbar";
+import { WhyChoose } from "@/components/why-choose";
+import { Challenges } from "@/components/challenges";
+import { Values } from "@/components/values";
+import { Resources } from "@/components/resources";
+import { WeekToWeek } from "@/components/week-to-week";
+import { Pricing } from "@/components/pricing";
 import { site, subjects, faqs } from "@/lib/site";
 
 // Structured data for traditional search + AI answer engines.
@@ -74,17 +78,21 @@ export default function HomePage() {
     <>
       <JsonLd />
       <Hero />
-      <TrustBar />
-      <About />
+      <Challenges />
       <Problem />
+      <WhyChoose />
+      <About />
+      <Values />
       <SubjectsShowcase />
-      <Stats />
+      {/* <Stats /> */}
       <SystemSection />
-      <Comparison />
+      <WeekToWeek />
+      <WhyAkbar />
       <TeamCarousel />
-      <PricingTeaser />
+      <Pricing />
       <Faq />
       <Reviews />
+      <Resources />
       <FinalCta />
     </>
   );

@@ -58,7 +58,7 @@ function FooterCol({ title, links }) {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-border bg-muted/30">
+    <footer className="border-t border-border bg-background">
       <Container className="py-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-6">
           <div className="col-span-2 lg:col-span-2">

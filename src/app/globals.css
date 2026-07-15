@@ -65,10 +65,12 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f4f5f7;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
+  /* Subtle elevated shade for alternating sections */
+  --section-alt: #ecedf1;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
 
@@ -116,25 +118,27 @@
 }
 
 .dark {
-  /* Midnight background (#000) with White (#F0F0F0) text */
-  --background: #070708;
+  /* Soft slate background (not near-black) with White (#F0F0F0) text */
+  --background: #181b21;
   --foreground: #f0f0f0;
-  --card: #131417;
+  --card: #252831;
   --card-foreground: #f0f0f0;
-  --popover: #131417;
+  --popover: #252831;
   --popover-foreground: #f0f0f0;
+  /* Subtle elevated shade for alternating sections */
+  --section-alt: #1e2027;
 
   --primary: #12c0ff;
   --primary-foreground: #04222e;
 
-  --secondary: #1b1c1f;
+  --secondary: #2c303a;
   --secondary-foreground: #f0f0f0;
-  --muted: #17181b;
+  --muted: #2c303a;
   --muted-foreground: #a4abb3;
   --accent: #102a36;
   --accent-foreground: #cdeeff;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: #12c0ff;
   --chart-1: oklch(0.87 0 0);
@@ -244,6 +248,12 @@
   .animate-floaty {
     animation: none !important;
   }
+}
+
+/* Alternating section shading so each homepage section reads as its own block.
+   Unlayered so it wins over Tailwind background utilities on those sections. */
+main > section:nth-of-type(even) {
+  background-color: var(--section-alt);
 }
 
 /* Subtle dot texture for the hero backdrop */
