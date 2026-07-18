@@ -11,12 +11,18 @@ import {
 import { SubjectsShowcase } from "@/components/subjects-showcase";
 import { TeamCarousel } from "@/components/team-carousel";
 import { WhyAkbar } from "@/components/why-akbar";
-import { WhyChoose } from "@/components/why-choose";
-import { Challenges } from "@/components/challenges";
+// import { WhyChoose } from "@/components/why-choose";
+// import { Challenges } from "@/components/challenges";
+import { BoardStrip } from "@/components/board-strip";
+import { WhoWeAre } from "@/components/who-we-are";
+import { WhyUs } from "@/components/why-us";
+import { LearningModes } from "@/components/learning-modes";
 import { Values } from "@/components/values";
+import { Proof } from "@/components/proof";
 import { Resources } from "@/components/resources";
 import { WeekToWeek } from "@/components/week-to-week";
-import { Pricing } from "@/components/pricing";
+// import { Pricing } from "@/components/pricing";
+import { PricingPlans } from "@/components/pricing-plans";
 import { site, subjects, faqs } from "@/lib/site";
 
 // Structured data for traditional search + AI answer engines.
@@ -78,21 +84,27 @@ export default function HomePage() {
     <>
       <JsonLd />
       <Hero />
-      <Challenges />
-      <Problem />
-      <WhyChoose />
-      <About />
-      <Values />
+      <BoardStrip />
+      <WhoWeAre />
+      {/* <Challenges /> */}
+      {/* <WhyChoose /> */}
+      {/* <About /> */}
       <SubjectsShowcase />
+      <Values />
       {/* <Stats /> */}
       <SystemSection />
+      <Proof />
+      <WhyUs />
+      <LearningModes />
       <WeekToWeek />
       <WhyAkbar />
+      <Problem />
       <TeamCarousel />
-      <Pricing />
+      {/* <Pricing /> */}
+      <PricingPlans />
       <Faq />
       <Reviews />
-      <Resources />
+      {/* <Resources /> */}
       <FinalCta />
     </>
   );

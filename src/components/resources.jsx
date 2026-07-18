@@ -35,7 +35,7 @@ export function Resources() {
               Resources &amp; books
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance text-white sm:text-4xl">
-              Physics, written and endorsed
+              Physics, written and endorsed.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-white/70 text-pretty">
               Our founder&rsquo;s IGCSE Physics books are endorsed by Cambridge,

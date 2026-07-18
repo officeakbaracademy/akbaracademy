@@ -25,6 +25,9 @@ import {
   Network,
   Search,
   MessageSquare,
+  AlignLeft,
+  PenTool,
+  SquareCheck,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -95,37 +98,25 @@ export function Hero() {
         <div className="grid items-end gap-8 lg:grid-cols-[3fr_2fr]">
           {/* LEFT — copy */}
           <Reveal className="py-14 lg:py-24">
-            <span className="inline-flex items-center rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-primary backdrop-blur">
-              Premium IGCSE &amp; A-Level tuition across Kuwait and the GCC
-            </span>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+              British curriculum specialists, Kuwait &amp; the GCC
+            </p>
 
             <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.04] tracking-tight text-balance sm:text-5xl xl:text-6xl">
-              Better grades need a{" "}
-              <span className="relative whitespace-nowrap text-primary">
-                better system
-                <svg
-                  aria-hidden
-                  viewBox="0 0 300 16"
-                  preserveAspectRatio="none"
-                  className="absolute -bottom-2 left-0 h-3 w-full text-gold"
-                >
-                  <path
-                    d="M2 11 C 60 3, 120 3, 160 8 S 260 14, 298 6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              .
+              Better grades start with a{" "}
+              <span className="text-primary">better system</span>.
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground text-pretty">
-              We turn confusion into clarity. A British-qualified team of
-              examiners and authors, with a proven method that moves your child
-              from working hard and guessing to calm, structured and improving
-              every week across Physics, Chemistry, Biology, Maths and English.
+            <p className="mt-4 font-heading text-xl font-bold italic text-gold sm:text-2xl">
+              A Class Above the Rest.
+            </p>
+
+            <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
+              Akbar Academy prepares IGCSE and A Level students for Cambridge,
+              Edexcel and AQA in Physics, Chemistry, Biology, Maths and English.
+              Specialist teachers, structured lessons, marked work and weekly
+              progress tracking. Onsite in Kuwait, hybrid, and live online
+              across the GCC.
             </p>
 
             <div className="mt-8 flex max-w-[260px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center">
@@ -557,40 +548,58 @@ export function Stats() {
   );
 }
 
-// 6 — SYSTEM ------------------------------------------------------------------
+// 6 — THE LEARNING LOOP ------------------------------------------------------
+const LOOP_ICONS = {
+  AlignLeft,
+  PenTool,
+  SquareCheck,
+  MessageSquare,
+  LineChart,
+};
+
 export function SystemSection() {
   return (
     <section className="py-12 sm:py-16">
       <Container>
-        <SectionHeading
-          accent="gold"
-          eyebrow="The Akbar Academy System"
-          title="A four-stage engine for real progress"
-          lead="The same structured method behind every subject and every teacher."
-        />
-        {/* Desktop — horizontal milestone timeline */}
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+            How it works
+          </p>
+          <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            The Akbar Academy learning loop.
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground text-pretty">
+            The same five steps run every week, in every subject. This is the
+            engine behind the grades.
+          </p>
+        </div>
+
+        {/* Desktop — horizontal loop */}
         <div className="relative mt-16 hidden lg:block">
           <div
             aria-hidden
-            className="absolute left-[12.5%] right-[12.5%] top-8 h-0.5 bg-gradient-to-r from-primary/70 via-primary/40 to-gold/70"
+            className="absolute left-[10%] right-[10%] top-8 border-t-2 border-dashed border-primary/30"
           />
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-5 gap-6">
             {systemSteps.map((step, i) => {
+              const Icon = LOOP_ICONS[step.icon] ?? AlignLeft;
               const gold = i % 2 === 1;
               return (
-                <Reveal key={step.n} delay={i * 100} className="flex flex-col items-center text-center">
+                <Reveal
+                  key={step.n}
+                  delay={i * 90}
+                  className="flex flex-col items-center text-center"
+                >
                   <div
                     className={cn(
                       "relative z-10 grid size-16 place-items-center rounded-full border-2 bg-background",
                       gold ? "border-gold text-gold" : "border-primary text-primary"
                     )}
                   >
-                    <span className="font-heading text-2xl font-extrabold leading-none">
-                      {step.n}
-                    </span>
+                    <Icon className="size-6" />
                   </div>
                   <h3 className="mt-5 font-heading text-lg font-bold">{step.title}</h3>
-                  <p className="mt-2 max-w-[15rem] text-sm text-muted-foreground">
+                  <p className="mt-2 max-w-[13rem] text-sm text-muted-foreground text-pretty">
                     {step.desc}
                   </p>
                 </Reveal>
@@ -599,14 +608,15 @@ export function SystemSection() {
           </div>
         </div>
 
-        {/* Mobile — vertical milestone timeline */}
+        {/* Mobile — vertical loop */}
         <div className="relative mt-12 lg:hidden">
           <div
             aria-hidden
-            className="absolute bottom-8 left-8 top-8 w-0.5 bg-gradient-to-b from-primary/70 via-primary/40 to-gold/70"
+            className="absolute bottom-8 left-8 top-8 border-l-2 border-dashed border-primary/30"
           />
           <div className="space-y-8">
             {systemSteps.map((step, i) => {
+              const Icon = LOOP_ICONS[step.icon] ?? AlignLeft;
               const gold = i % 2 === 1;
               return (
                 <div key={step.n} className="relative flex gap-5">
@@ -616,11 +626,9 @@ export function SystemSection() {
                       gold ? "border-gold text-gold" : "border-primary text-primary"
                     )}
                   >
-                    <span className="font-heading text-2xl font-extrabold leading-none">
-                      {step.n}
-                    </span>
+                    <Icon className="size-6" />
                   </div>
-                  <div className="pt-2">
+                  <div className="pt-3.5">
                     <h3 className="font-heading text-lg font-bold">{step.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
                   </div>
@@ -755,7 +763,7 @@ export function Reviews() {
       <Container>
         <SectionHeading
           eyebrow="Parents & students say"
-          title="Results that speak for themselves"
+          title="Results that speak for themselves."
           lead="Rated 4.9 on Trustpilot and Google by more than 3,000 students taught."
         />
       </Container>
@@ -888,7 +896,7 @@ export function Faq() {
       <Container className="max-w-3xl">
         <SectionHeading
           eyebrow="Frequently asked"
-          title="Questions parents ask us most"
+          title="Questions parents ask us most."
         />
         <Accordion className="mt-10 w-full">
           {faqs.map((f, i) => (
@@ -912,54 +920,39 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24">
+    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0f8fd4,#0b6ba4_55%,#0a5688)] py-16 dark:bg-[linear-gradient(to_bottom,#102a48,#0b1c30)] sm:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(55%_55%_at_50%_45%,#000,transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_90%_at_50%_-10%,rgba(2,186,253,0.4),transparent_60%)] dark:bg-[radial-gradient(60%_90%_at_50%_0%,rgba(2,186,253,0.16),transparent_65%)]"
       />
       <Container className="relative text-center">
         <Reveal>
-          <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance sm:text-4xl lg:text-5xl">
-            Give your child a{" "}
-            <span className="relative whitespace-nowrap text-primary">
-              better system
-              <svg
-                aria-hidden
-                viewBox="0 0 300 16"
-                preserveAspectRatio="none"
-                className="absolute -bottom-1.5 left-0 h-3 w-full text-gold"
-              >
-                <path
-                  d="M2 11 C 60 3, 120 3, 160 8 S 260 14, 298 6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            .
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+            Ready when you are
+          </p>
+          <h2 className="mx-auto mt-3 max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl">
+            See the difference a real system makes.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-            Book an evaluation and our British-qualified team will map a clear
-            path to better grades in any subject.
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 text-pretty">
+            Book an evaluation session and we will assess your child, recommend
+            the right class, and show you exactly how we will get them to their
+            target grade.
           </p>
           <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <ButtonLink
               href="/pricing"
-              className="h-11 w-[260px] px-6 sm:w-auto sm:px-7"
+              className="h-11 w-[260px] bg-white px-6 text-primary hover:bg-white/90 sm:w-auto sm:px-7"
             >
-              Book your evaluation
+              Book an Evaluation
             </ButtonLink>
             <ButtonLink
               variant="outline"
               href={site.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-11 w-[260px] px-6 sm:w-auto sm:px-7"
+              className="h-11 w-[260px] border-white/40 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white sm:w-auto sm:px-7"
             >
-              <MessageCircle className="size-5" />
-              Talk to us on WhatsApp
+              Message us on WhatsApp
             </ButtonLink>
           </div>
         </Reveal>

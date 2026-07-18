@@ -64,8 +64,8 @@ export const subjects = [
     char: "/assets/subject-physics-char.png",
     tagline: "Led by our founder and published author, Mr Akbar.",
     blurb:
-      "From mechanics to nuclear physics, taught around exactly how marks are won. Our flagship subject, built on the method behind five endorsed textbooks.",
-    levels: ["IGCSE", "AS", "A2"],
+      "Led by our founder and Physics author. From IGCSE foundations to confident A Level problem solving.",
+    levels: ["IGCSE", "AS & A2"],
     boards: ["cambridge", "edexcel", "aqa"],
     boardNote: "Cambridge and Edexcel at IGCSE, plus AQA at AS and A Level.",
     lead: "Mr Akbar and Mr McComish",
@@ -84,7 +84,7 @@ export const subjects = [
     char: "/assets/subject-chemistry-char.png",
     tagline: "Structured mastery of every reaction, mole and mechanism.",
     blurb:
-      "Organic, inorganic and physical chemistry taught as one connected system, with the calculations and practical skills examiners reward.",
+      "Clear, exam focused teaching that turns definitions and mechanisms into reliable marks.",
     levels: ["IGCSE", "AS"],
     boards: ["cambridge", "edexcel"],
     lead: "Mr Jav",
@@ -101,7 +101,7 @@ export const subjects = [
     char: "/assets/subject-biology-char.png",
     tagline: "Clear, confident command of every system and process.",
     blurb:
-      "From cells to whole systems, taught for genuine understanding, plus the precise exam language markers are looking for.",
+      "Structured content, strong recall technique and exam application from IGCSE to AS.",
     levels: ["IGCSE", "AS"],
     boards: ["cambridge", "edexcel"],
     lead: "Mr Alex Robert",
@@ -118,7 +118,7 @@ export const subjects = [
     char: "/assets/subject-maths-char.png",
     tagline: "Method, fluency and full-mark exam technique.",
     blurb:
-      "Number, algebra, geometry and statistics built up step by step, until the method is second nature and nothing in the exam feels unfamiliar.",
+      "Method first teaching that builds fluency and speed for IGCSE and AS Level papers.",
     levels: ["IGCSE", "AS"],
     boards: ["cambridge", "edexcel"],
     lead: "Mr Michael Kwatia",
@@ -135,7 +135,7 @@ export const subjects = [
     char: "/assets/subject-english-char.png",
     tagline: "Reading, writing and analysis that reads like top-band work.",
     blurb:
-      "First and Second Language English taught by an experienced examiner, building the reading, writing and analysis skills that hit the top band.",
+      "First Language and Second Language support that lifts reading, writing and exam response quality.",
     levels: ["IGCSE"],
     boards: ["cambridge", "edexcel"],
     lead: "Ms George Dixon",
@@ -242,27 +242,37 @@ export const includedElite = [
   { text: "Priority marking and feedback turnaround" },
 ];
 
-// The four-stage method.
+// The five-step learning loop that runs every week, in every subject.
 export const systemSteps = [
   {
     n: 1,
-    title: "Diagnose mastery",
-    desc: "Pinpoint exactly what your child knows and where the real gaps are.",
+    icon: "AlignLeft",
+    title: "Teach",
+    desc: "Specialist live lessons, structured to the syllabus.",
   },
   {
     n: 2,
-    title: "Structured practice",
-    desc: "Targeted lessons and resources that build on each other, no guesswork.",
+    icon: "PenTool",
+    title: "Practise",
+    desc: "Targeted questions and real past paper work.",
   },
   {
     n: 3,
-    title: "Exam integration",
-    desc: "Exam technique woven in, so real understanding converts into marks.",
+    icon: "SquareCheck",
+    title: "Mark",
+    desc: "Work marked to the mark scheme, not guessed.",
   },
   {
     n: 4,
-    title: "Performance feedback",
-    desc: "Clear tracking and parent feedback, every step of the way.",
+    icon: "MessageSquare",
+    title: "Feedback",
+    desc: "Clear next steps on exactly what to fix.",
+  },
+  {
+    n: 5,
+    icon: "LineChart",
+    title: "Track",
+    desc: "Progress logged and shared with parents.",
   },
 ];
 
@@ -315,6 +325,34 @@ export const evaluation = {
   desc: "2 to 4 lessons. Full academic assessment. Detailed parent report. We identify exactly where your child is and which course type suits them, before you commit to monthly fees.",
 };
 
+// The two parent-facing monthly plans (homepage pricing section).
+export const plans = [
+  {
+    name: "Live Online",
+    price: "82",
+    note: "Per subject, from",
+    features: [
+      "8 live lessons a month, 2 hours each",
+      "Marked work and weekly feedback",
+      "Progress tracking for parents",
+      "Learn from anywhere in the GCC",
+    ],
+  },
+  {
+    name: "Onsite & Hybrid",
+    price: "102",
+    badge: "Most popular",
+    featured: true,
+    note: "Per subject, from",
+    features: [
+      "Everything in Live Online",
+      "Face to face classes in Kuwait",
+      "Switch between onsite and online",
+      "Structured classroom environment",
+    ],
+  },
+];
+
 export const courseTypes = [
   {
     name: "Full Course",
@@ -352,43 +390,86 @@ export const courseTypes = [
   },
 ];
 
-// Team.
+// Team. Each credential renders on its own line with an icon: "badge" for
+// experience and specialisms, "doc" for degrees, authorship and publications.
 export const team = [
   {
     name: "Mr Kaleem Akbar",
     subject: "Physics Lead",
     photo: "/assets/team-kaleem.jpg",
-    bio: "20+ years teaching and a Cambridge and Edexcel endorsed author, with five published IGCSE textbooks.",
+    credentials: [
+      { icon: "badge", text: "20+ years teaching, Cambridge & Edexcel endorsed author" },
+      { icon: "doc", text: "Author of 5 IGCSE textbooks" },
+    ],
   },
   {
     name: "Mr Phil McComish",
     subject: "Physics Specialist",
     photo: "/assets/team-phil.jpg",
-    bio: "26+ years teaching, an examiner across major boards, and a Cambridge University Press author.",
+    credentials: [
+      { icon: "badge", text: "26+ years teaching, examiner across major boards" },
+      { icon: "doc", text: "Co-author, Cambridge University Press Physics Coursebook" },
+    ],
   },
   {
     name: "Mr Jav",
     subject: "Chemistry Lead",
     photo: "/assets/team-jav.jpg",
-    bio: "Biochemistry (Hons), University of Manchester, and an IGCSE and A-Level Chemistry specialist.",
+    credentials: [
+      { icon: "doc", text: "Biochemistry (Hons), University of Manchester" },
+      { icon: "badge", text: "IGCSE & A-Level Chemistry specialist" },
+    ],
   },
   {
     name: "Mr Alex Robert",
     subject: "Biology Lead",
     photo: "/assets/team-alex.jpg",
-    bio: "An IGCSE and A-Level Biology specialist teaching the Cambridge and Edexcel examination boards.",
+    credentials: [
+      { icon: "badge", text: "IGCSE & A-Level Biology specialist" },
+      { icon: "doc", text: "Cambridge & Edexcel exam boards" },
+    ],
   },
   {
     name: "Mr Michael Kwatia",
     subject: "Maths Lead",
     photo: "/assets/team-michael.jpg",
-    bio: "A Qualified Teacher (QTS) with 9+ years of experience and a BSc from Sheffield Hallam University.",
+    credentials: [
+      { icon: "badge", text: "Qualified Teacher (QTS), 9+ years teaching maths" },
+      { icon: "doc", text: "BSc Mathematics & Education, Sheffield Hallam University" },
+    ],
   },
   {
     name: "Ms George Dixon",
     subject: "English Lead",
     photo: "/assets/team-george.jpg",
-    bio: "A BA (Hons) English graduate with two Master's degrees and a PGCE, and an AQA and Edexcel examiner.",
+    credentials: [
+      { icon: "badge", text: "BA (Hons) English, MA, MA, PGCE" },
+      { icon: "doc", text: "AQA & Edexcel Examiner" },
+    ],
+  },
+];
+
+// Headline proof banner: the results gap plus verified Trustpilot testimonials.
+export const proof = {
+  stat: "96%",
+  claim: "of Akbar Academy students achieve A* to B.",
+  detail:
+    "Against 64% A* to B for Cambridge worldwide, that is a 32 point difference. The gap is not the students. It is the system around them.",
+  rating: "4.9",
+};
+
+export const proofReviews = [
+  {
+    quote:
+      "My son jumped from C's to an A. Thank you Mr Akbar for your efforts.",
+    name: "Aisha Albannai",
+    role: "Parent, verified on Trustpilot",
+  },
+  {
+    quote:
+      "Mr Akbar is a brilliant teacher who was able to make my daughter not only understand physics but also adore it.",
+    name: "Omnasreldeen Mohd",
+    role: "Parent, verified on Trustpilot",
   },
 ];
 

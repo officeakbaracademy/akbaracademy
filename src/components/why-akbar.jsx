@@ -41,7 +41,7 @@ export function WhyAkbar() {
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
               Why Akbar Academy gets{" "}
-              <span className="text-primary">better results</span>
+              <span className="text-primary">better results</span>.
             </h2>
             <p className="mt-4 text-lg text-muted-foreground text-pretty">
               A premium standard runs through every part of the programme, the
@@ -156,11 +156,11 @@ export function WhyAkbar() {
               <span className="text-primary">A complete grade system.</span>
             </h3>
 
-            <div className="mt-7 flex flex-wrap justify-center gap-2.5">
+            <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:justify-center">
               {FEATURES.map(({ icon: Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground/90"
+                  className="inline-flex w-full items-center gap-2.5 rounded-full border border-border bg-background px-5 py-2.5 text-left text-sm font-semibold text-foreground/90 sm:w-auto sm:px-4 sm:py-2"
                 >
                   <Icon className="size-4 shrink-0 text-primary" />
                   {label}
