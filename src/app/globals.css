@@ -263,7 +263,9 @@ main > section:nth-of-type(even) {
    buttons, icons and rings. Flat, identical in light and dark mode, so every
    blue surface on the site matches the brand colour precisely.
 --------------------------------------------------------------------------- */
-.bg-brand-blue {
+/* NOTE: deliberately NOT named "bg-*". A class like .bg-brand-blue collides
+   with Tailwind's colour-utility namespace and gets stripped from the build. */
+.surface-electric {
   /* Painted as a flat gradient (not background-color) so it beats the
      higher-specificity alternating-section rule above. */
   background-color: #02bafd;

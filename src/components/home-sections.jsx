@@ -893,7 +893,7 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="bg-brand-blue relative overflow-hidden py-16 sm:py-24">
+    <section className="surface-electric relative overflow-hidden py-16 sm:py-24">
       <Container className="relative text-center">
         <Reveal>
           <p>

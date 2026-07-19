@@ -46,7 +46,7 @@ function TrustpilotBadge() {
 
 export function Proof() {
   return (
-    <section className="bg-brand-blue relative overflow-hidden py-14 sm:py-20">
+    <section className="surface-electric relative overflow-hidden py-14 sm:py-20">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
           {/* LEFT — the headline number */}
@@ -76,17 +76,17 @@ export function Proof() {
               <Reveal
                 key={r.name}
                 delay={i * 120}
-                className="flex flex-col rounded-2xl bg-primary-foreground/10 p-6 ring-1 ring-primary-foreground/15"
+                className="flex flex-col rounded-2xl bg-primary-foreground p-6 ring-1 ring-white/10"
               >
-                <Stars className="flex gap-0.5 text-primary-foreground/70" />
-                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-primary-foreground/85">
+                <Stars className="flex gap-0.5 text-gold" />
+                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-white/85">
                   {r.quote}
                 </p>
                 <div className="mt-5">
-                  <div className="font-heading text-sm font-bold text-primary-foreground">
+                  <div className="font-heading text-sm font-bold text-gold">
                     {r.name}
                   </div>
-                  <div className="mt-0.5 text-xs text-primary-foreground/70">{r.role}</div>
+                  <div className="mt-0.5 text-xs text-white/65">{r.role}</div>
                 </div>
               </Reveal>
             ))}

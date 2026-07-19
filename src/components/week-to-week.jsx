@@ -33,7 +33,7 @@ const STEPS = [
 
 export function WeekToWeek() {
   return (
-    <section className="bg-brand-blue relative overflow-hidden py-12 sm:py-16">
+    <section className="surface-electric relative overflow-hidden py-12 sm:py-16">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(45%_70%_at_15%_-5%,rgba(2,186,253,0.4),transparent_62%)] dark:bg-[radial-gradient(50%_80%_at_50%_0%,rgba(2,186,253,0.14),transparent_68%)]"

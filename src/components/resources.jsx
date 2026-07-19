@@ -29,7 +29,7 @@ export function Resources() {
   return (
     <section id="resources" className="py-12 sm:py-16">
       <Container>
-        <Reveal className="bg-brand-blue overflow-hidden rounded-[2rem] px-6 py-12 ring-1 ring-white/10 sm:px-10 sm:py-14">
+        <Reveal className="surface-electric overflow-hidden rounded-[2rem] px-6 py-12 ring-1 ring-white/10 sm:px-10 sm:py-14">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">
               Resources &amp; books
