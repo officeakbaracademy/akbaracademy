@@ -76,17 +76,19 @@ export function Proof() {
               <Reveal
                 key={r.name}
                 delay={i * 120}
-                className="flex flex-col rounded-2xl bg-primary-foreground p-6 ring-1 ring-white/10"
+                className="flex flex-col rounded-2xl bg-gold p-6"
               >
-                <Stars className="flex gap-0.5 text-gold" />
-                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-white/85">
+                <Stars className="flex gap-0.5 text-gold-foreground" />
+                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-gold-foreground/90">
                   {r.quote}
                 </p>
                 <div className="mt-5">
-                  <div className="font-heading text-sm font-bold text-gold">
+                  <div className="font-heading text-sm font-bold text-gold-foreground">
                     {r.name}
                   </div>
-                  <div className="mt-0.5 text-xs text-white/65">{r.role}</div>
+                  <div className="mt-0.5 text-xs text-gold-foreground/75">
+                    {r.role}
+                  </div>
                 </div>
               </Reveal>
             ))}

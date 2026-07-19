@@ -2,27 +2,32 @@ import Image from "next/image";
 
 import { Container } from "@/components/container";
 
-// Exam board wordmarks under the hero. The band is dark in both themes so the
-// white Cambridge and Edexcel marks read cleanly: a rich brand blue in light
-// mode, deep navy in dark mode. AQA's dark-purple artwork is knocked to white.
-// Logos are always white. Cambridge and Edexcel artwork is already white; AQA's
-// dark-purple artwork is knocked to white. The band stays a deep, vibrant
-// electric blue so the white marks read cleanly.
+// Exam board wordmarks under the hero, on the Electric band. Logos are always
+// white: Cambridge and Edexcel artwork already is, AQA's dark purple is knocked
+// to white.
+//
+// Each mark gets its OWN height rather than one shared size, because their
+// proportions differ a lot (aspect ratios 5.21 / 5.41 / 2.82). At a single
+// height AQA renders roughly half the width of the others and the row looks
+// lopsided, so it is set taller to even out the visual weight.
 const BOARDS = [
   {
     src: "/assets/book-logo-cambridge-mark.png",
     alt: "Cambridge International Examinations",
     filter: "",
+    size: "h-9 sm:h-10 mt-1", // wide two-line lockup with crest
   },
   {
     src: "/assets/book-logo-edexcel-mark.png",
     alt: "Edexcel",
     filter: "",
+    size: "h-8 sm:h-9 -pt-2", // widest mark, so slightly shorter
   },
   {
     src: "/assets/aqa.svg",
     alt: "AQA",
     filter: "brightness-0 invert",
+    size: "h-11 sm:h-12 -pt-2", // most compact mark, needs height to match presence
   },
 ];
 
@@ -55,7 +60,7 @@ export function BoardStrip() {
                 alt={b.alt}
                 width={200}
                 height={62}
-                className={`h-8 w-auto object-contain sm:h-9 ${b.filter}`}
+                className={`w-auto object-contain ${b.size} ${b.filter}`}
                 loading="eager"
                 unoptimized
               />
