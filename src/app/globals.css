@@ -118,28 +118,32 @@
 }
 
 .dark {
-  /* Soft slate background (not near-black) with White (#F0F0F0) text */
-  --background: #181b21;
+  /* True black (Midnight #000000 from the brand sheet) with White (#F0F0F0)
+     text. Surfaces sit just above black so cards still separate from the page
+     without introducing a grey or blue cast. */
+  --background: #000000;
   --foreground: #f0f0f0;
-  --card: #252831;
+  /* Every surface is pure Midnight black. With no fill difference between the
+     page and its panels, borders do the separating, so they are a touch
+     stronger than usual. */
+  --card: #000000;
   --card-foreground: #f0f0f0;
-  --popover: #252831;
+  --popover: #000000;
   --popover-foreground: #f0f0f0;
-  /* Subtle elevated shade for alternating sections */
-  --section-alt: #1e2027;
+  --section-alt: #000000;
 
   --primary: #02bafd;
   --primary-foreground: #04222e;
 
-  --secondary: #2c303a;
+  --secondary: #0d0d0d;
   --secondary-foreground: #f0f0f0;
-  --muted: #2c303a;
-  --muted-foreground: #a4abb3;
-  --accent: #102a36;
+  --muted: #0d0d0d;
+  --muted-foreground: #a1a1a1;
+  --accent: #0a2430;
   --accent-foreground: #cdeeff;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
+  --border: oklch(1 0 0 / 18%);
+  --input: oklch(1 0 0 / 20%);
   --ring: #02bafd;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);

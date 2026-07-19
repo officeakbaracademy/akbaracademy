@@ -26,10 +26,12 @@ function Message({ a, accent }) {
 // of the page. The track holds two copies of the list so the CSS marquee
 // (translateX 0 -> -50%) loops seamlessly. Highlights alternate blue and gold.
 export function AnnouncementBar() {
-  const n = announcements.length;
-  // One "set" repeats the list enough to overflow even wide screens, then the
-  // set is duplicated so the marquee (translateX 0 -> -50%) loops with no gap.
-  const set = [...announcements, ...announcements, ...announcements];
+  // One "set" must be wide enough to cover the widest screen on its own,
+  // because the marquee translates by -50% (exactly one set). Short lists need
+  // more repeats, so scale the count to the number of messages.
+  const repeats = Math.max(3, Math.ceil(12 / announcements.length));
+  const set = Array.from({ length: repeats }, () => announcements).flat();
+  // Duplicated so translateX 0 -> -50% loops with no gap.
   const loop = [...set, ...set];
 
   return (
@@ -42,7 +44,7 @@ export function AnnouncementBar() {
       <div className="flex overflow-hidden py-2">
         <div className="animate-marquee flex shrink-0 items-center whitespace-nowrap [animation-duration:95s]">
           {loop.map((a, i) => {
-            const accent = (i % n) % 2 === 0 ? "gold" : "primary";
+            const accent = i % 2 === 0 ? "gold" : "primary";
             return (
               <span key={i} className="inline-flex items-center">
                 <Message a={a} accent={accent} />

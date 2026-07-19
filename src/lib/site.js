@@ -37,17 +37,9 @@ export const site = {
 // Top announcement ticker (scrolls across the very top of every page).
 export const announcements = [
   {
-    strong: "Academic session starts this August",
-    post: ", book your seat before classes fill",
+    strong: "Book your evaluation now.",
+    post: " The new academic session starts 22 August.",
   },
-  {
-    pre: "Only a ",
-    strong: "limited number of seats per class",
-    post: ", we keep groups small on purpose",
-  },
-  { strong: "Cambridge, Edexcel and AQA" },
-  { pre: "Led by a ", strong: "Cambridge and Edexcel endorsed author" },
-  { strong: "Live online across the GCC" },
 ];
 
 // Exam boards offered across subjects.
