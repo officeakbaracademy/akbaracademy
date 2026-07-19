@@ -49,6 +49,7 @@ import {
   comparison,
   team,
   tickerReviews,
+  trustpilotStats,
   stats,
   faqs,
   seoSections,
@@ -88,21 +89,30 @@ function SectionHeading({ eyebrow, title, lead, center = true, className, accent
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* dot texture */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-dots opacity-45 [mask-image:radial-gradient(70%_60%_at_45%_25%,#000,transparent)]"
-      />
+      {/* background photograph + readability scrim */}
+      <div aria-hidden className="absolute inset-0">
+        <Image
+          src="/assets/hero-classroom-v2.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-left lg:object-center"
+          priority
+          unoptimized
+        />
+        {/* flat overlay so the photograph stays visible behind the copy */}
+        <div className="absolute inset-0 bg-black/80" />
+      </div>
 
       <Container className="relative">
-        <div className="grid items-end gap-8 lg:grid-cols-[3fr_2fr]">
-          {/* LEFT — copy */}
-          <Reveal className="py-14 lg:py-24">
+        <div className="grid items-end gap-8">
+          {/* copy */}
+          <Reveal className="mx-auto max-w-5xl pb-8 pt-16 text-center sm:pt-24 lg:pb-12 lg:pt-40">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
               British curriculum specialists, Kuwait &amp; the GCC
             </p>
 
-            <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.04] tracking-tight text-balance sm:text-5xl xl:text-6xl">
+            <h1 className="mt-2 font-heading text-4xl font-extrabold leading-[1.04] tracking-tight text-balance text-white sm:text-5xl xl:text-6xl">
               Better grades start with a{" "}
               <span className="text-primary">better system</span>.
             </h1>
@@ -111,24 +121,24 @@ export function Hero() {
               A Class Above the Rest.
             </p>
 
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
+            {/* <p className="mx-auto mt-5 max-w-4xl text-lg leading-relaxed text-white/85 text-pretty">
               Akbar Academy prepares IGCSE and A Level students for Cambridge,
               Edexcel and AQA in Physics, Chemistry, Biology, Maths and English.
               Specialist teachers, structured lessons, marked work and weekly
               progress tracking. Onsite in Kuwait, hybrid, and live online
               across the GCC.
-            </p>
+            </p> */}
 
-            <div className="mt-8 flex max-w-[260px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center">
+            <div className="mx-auto mt-8 flex max-w-[260px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
               <ButtonLink
                 className="h-11 w-full px-6 sm:w-auto sm:px-7"
-                href="/pricing"
+                href={site.bookEvaluation}
               >
                 Book your evaluation
               </ButtonLink>
               <ButtonLink
                 variant="outline"
-                className="h-11 w-full px-6 sm:w-auto sm:px-7"
+                className="h-11 w-full border-white/40 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white sm:w-auto sm:px-7"
                 href={site.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -138,64 +148,19 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/80">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/85">
                 <MapPin className="size-4 text-gold" />
                 Live online across the GCC
               </span>
-              <span className="hidden h-4 w-px bg-border sm:block" />
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/80">
+              <span className="hidden h-4 w-px bg-white/25 sm:block" />
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/85">
                 <Home className="size-4 text-gold" />
                 On-site hub in Kuwait
               </span>
             </div>
           </Reveal>
 
-          {/* RIGHT — student cut-out on a blob + floating card */}
-          <Reveal delay={120} className="relative">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
-              {/* outline contour — same shape, sitting just outside the blob */}
-              <div
-                aria-hidden
-                className="blob-shape absolute bottom-[-4%] left-[-3%] right-[-3%] top-[9%] rotate-[2deg] border-2 border-foreground/20"
-              />
-
-              {/* filled brand blob */}
-              <div
-                aria-hidden
-                className="blob-shape absolute inset-x-3 bottom-0 top-16 bg-gradient-to-br from-primary/80 via-primary/55 to-gold/60"
-              />
-
-              {/* student cut-out */}
-              <div className="absolute inset-x-0 bottom-0 top-2">
-                <Image
-                  src="/assets/hero-student-2.png"
-                  alt="An Akbar Academy student holding his books"
-                  fill
-                  sizes="(max-width:1024px) 80vw, 460px"
-                  className="object-contain object-bottom drop-shadow-2xl"
-                  priority
-                  unoptimized
-                />
-              </div>
-
-              {/* single floating card — headline result */}
-              {/* <div className="animate-floaty absolute bottom-10 left-0 flex items-center gap-3.5 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-xl shadow-black/10 backdrop-blur sm:-left-6">
-                <span className="font-heading text-3xl font-extrabold leading-none text-primary">
-                  96%
-                </span>
-                <span className="h-9 w-px bg-border" />
-                <span>
-                  <span className="block text-sm font-bold leading-tight">
-                    A* to B
-                  </span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground">
-                    at IGCSE
-                  </span>
-                </span>
-              </div> */}
-            </div>
-          </Reveal>
         </div>
 
         <Reveal delay={200}>
@@ -250,26 +215,29 @@ export function TrustBar() {
 // TESTIMONIAL SLIDER (near the end) --------------------------------------------
 function ReviewCard({ r }) {
   return (
-    <figure className="flex w-[320px] shrink-0 flex-col gap-3 rounded-2xl border border-border bg-card p-5">
-      <div className="flex items-center justify-between">
-        <div className="flex gap-0.5 text-gold">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="size-3.5 fill-current" />
-          ))}
-        </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary">
-          {r.from}
-          <ArrowRight className="size-3" />
-          {r.to}
-        </span>
+    <figure className="flex w-[340px] shrink-0 flex-col gap-3 rounded-2xl border border-border bg-card p-5">
+      {/* Trustpilot green stars, matching the source */}
+      <div className="flex gap-0.5">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span
+            key={i}
+            className="grid size-4 place-items-center bg-[#00b67a]"
+          >
+            <Star className="size-3 fill-white text-white" />
+          </span>
+        ))}
       </div>
-      <p className="flex-1 text-sm leading-relaxed text-foreground/90">
-        &ldquo;{r.quote}&rdquo;
+
+      <div className="font-heading text-sm font-bold">{r.title}</div>
+
+      <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
+        {r.quote}
       </p>
+
       <figcaption className="text-xs text-muted-foreground">
-        <span className="font-semibold text-foreground">{r.name}</span>, {r.role}
+        <span className="font-semibold text-foreground">{r.name}</span>
         <span className="text-border"> | </span>
-        {r.subject}
+        {r.location}
       </figcaption>
     </figure>
   );
@@ -383,7 +351,7 @@ export function Subjects() {
                 className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
               >
                 <div className="flex items-center gap-3.5">
-                  <span className="relative size-16 shrink-0 rounded-xl bg-white ring-1 ring-black/5">
+                  <span className="relative size-16 shrink-0 rounded-xl bg-white ring-1 ring-primary-foreground/5">
                     <Image
                       src={s.char}
                       alt=""
@@ -764,7 +732,7 @@ export function Reviews() {
         <SectionHeading
           eyebrow="Parents & students say"
           title="Results that speak for themselves."
-          lead="Rated 4.9 on Trustpilot and Google by more than 3,000 students taught."
+          lead={`Rated ${trustpilotStats.score} out of 5 on Trustpilot from ${trustpilotStats.count} reviews.`}
         />
       </Container>
 
@@ -779,8 +747,13 @@ export function Reviews() {
 
       <Container>
         <div className="mt-10 text-center">
-          <ButtonLink variant="outline" href="/reviews">
-            Read more reviews
+          <ButtonLink
+            variant="outline"
+            href={site.trustpilot}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read all reviews on Trustpilot
           </ButtonLink>
         </div>
       </Container>
@@ -821,20 +794,20 @@ export function PricingTeaser() {
                 </ButtonLink>
               </div>
             </div>
-            <div className="relative shrink-0 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffd24a] to-[#f5a300] px-10 py-8 text-center text-gold-foreground shadow-xl shadow-gold/30 ring-1 ring-black/10">
+            <div className="relative shrink-0 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffd24a] to-[#f5a300] px-10 py-8 text-center text-gold-foreground shadow-xl shadow-gold/30 ring-1 ring-primary-foreground/10">
               {/* soft top sheen for a polished, glossy finish */}
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 -top-3 h-20 bg-gradient-to-b from-white/40 to-transparent"
               />
               <div className="relative">
-                <span className="inline-flex items-center rounded-full bg-black/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]">
+                <span className="inline-flex items-center rounded-full bg-primary-foreground/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]">
                   Evaluation
                 </span>
                 <div className="mt-3.5 font-heading text-5xl font-extrabold leading-none tracking-tight">
                   KD 49
                 </div>
-                <div className="mx-auto mt-4 h-px w-10 bg-black/25" />
+                <div className="mx-auto mt-4 h-px w-10 bg-primary-foreground/25" />
                 <p className="mt-3 text-[13px] font-semibold text-gold-foreground">
                   one-off, then choose a programme
                 </p>
@@ -920,28 +893,26 @@ export function Faq() {
 // 13 — FINAL CTA --------------------------------------------------------------
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0f8fd4,#0b6ba4_55%,#0a5688)] py-16 dark:bg-[linear-gradient(to_bottom,#102a48,#0b1c30)] sm:py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_90%_at_50%_-10%,rgba(2,186,253,0.4),transparent_60%)] dark:bg-[radial-gradient(60%_90%_at_50%_0%,rgba(2,186,253,0.16),transparent_65%)]"
-      />
+    <section className="bg-brand-blue relative overflow-hidden py-16 sm:py-24">
       <Container className="relative text-center">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-            Ready when you are
+          <p>
+            <span className="inline-flex items-center rounded-full bg-gold px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-gold-foreground">
+              Ready when you are
+            </span>
           </p>
-          <h2 className="mx-auto mt-3 max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mx-auto mt-3 max-w-2xl font-heading text-3xl font-extrabold tracking-tight text-balance text-primary-foreground sm:text-4xl lg:text-5xl">
             See the difference a real system makes.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 text-pretty">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/80 text-pretty">
             Book an evaluation session and we will assess your child, recommend
-            the right class, and show you exactly how we will get them to their
+            the right programme, and show you exactly how we will get them to their
             target grade.
           </p>
           <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <ButtonLink
-              href="/pricing"
-              className="h-11 w-[260px] bg-white px-6 text-primary hover:bg-white/90 sm:w-auto sm:px-7"
+              href={site.bookEvaluation}
+              className="h-11 w-[260px] bg-gold px-6 text-gold-foreground hover:bg-gold/90 sm:w-auto sm:px-7"
             >
               Book an Evaluation
             </ButtonLink>
@@ -950,7 +921,7 @@ export function FinalCta() {
               href={site.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-11 w-[260px] border-white/40 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white sm:w-auto sm:px-7"
+              className="h-11 w-[260px] border-primary-foreground/40 bg-transparent px-6 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground sm:w-auto sm:px-7"
             >
               Message us on WhatsApp
             </ButtonLink>

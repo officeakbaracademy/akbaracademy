@@ -23,10 +23,10 @@ const ROW_ICONS = { User, Package, Users, Pencil, Clock, MessageSquare };
 
 const FEATURES = [
   { icon: MonitorPlay, label: "Live interactive classes" },
-  { icon: FileText, label: "Instructor-tested exam feedback" },
-  { icon: TrendingUp, label: "Live progress via the app" },
-  { icon: PlayCircle, label: "Recorded lesson & re-access" },
-  { icon: MessageSquare, label: "Exam-board specific prep" },
+  { icon: FileText, label: "Marked exam feedback" },
+  { icon: TrendingUp, label: "Live progress tracking" },
+  { icon: PlayCircle, label: "Recorded lesson access" },
+  { icon: MessageSquare, label: "Exam board specific prep" },
 ];
 
 export function WhyAkbar() {
@@ -146,29 +146,36 @@ export function WhyAkbar() {
         </div>
 
         {/* Feature banner */}
-        <Reveal delay={150} className="mt-12">
-          <div className="rounded-3xl border border-border bg-card p-8 text-center sm:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">
-              What you get
-            </p>
-            <h3 className="mx-auto mt-2 max-w-xl font-heading text-2xl font-extrabold leading-tight text-balance sm:text-3xl">
-              More than just lessons.{" "}
-              <span className="text-primary">A complete grade system.</span>
-            </h3>
+        {/* <Reveal delay={150} className="mt-12">
+          <div className="rounded-[2rem] border border-border bg-card px-7 py-8 sm:px-10 sm:py-9">
+            <div className="flex flex-col gap-9 lg:flex-row lg:items-center lg:gap-8">
+            
+              <div className="shrink-0 lg:max-w-[14rem]">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                  What you get
+                </p>
+                <h3 className="mt-3 font-heading text-2xl font-extrabold leading-tight sm:text-[1.75rem]">
+                  More than just lessons. A complete grade system.
+                </h3>
+              </div>
 
-            <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:justify-center">
-              {FEATURES.map(({ icon: Icon, label }) => (
-                <span
-                  key={label}
-                  className="inline-flex w-full items-center gap-2.5 rounded-full border border-border bg-background px-5 py-2.5 text-left text-sm font-semibold text-foreground/90 sm:w-auto sm:px-4 sm:py-2"
-                >
-                  <Icon className="size-4 shrink-0 text-primary" />
-                  {label}
-                </span>
-              ))}
+           
+              <div className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3 lg:flex lg:flex-1 lg:justify-between lg:gap-7">
+                {FEATURES.map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex items-start gap-2.5 lg:flex-1 lg:flex-col lg:gap-3"
+                  >
+                    <Icon className="mt-0.5 size-5 shrink-0 text-primary lg:mt-0" />
+                    <span className="text-sm font-bold leading-snug text-foreground/90">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </Reveal>
+        </Reveal> */}
       </Container>
     </section>
   );

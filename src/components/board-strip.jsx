@@ -28,7 +28,7 @@ const BOARDS = [
 
 export function BoardStrip() {
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(135deg,#0f8fd4,#0b6ba4_55%,#0a5688)] dark:bg-[linear-gradient(to_bottom,#102a48,#0b1c30)]">
+    <section className="bg-brand-blue relative overflow-hidden border-y border-white/10">
       {/* electric-blob glow in the top-left corner, echoing the hero blob and
           kept clear of the logos so they stay readable */}
       <div

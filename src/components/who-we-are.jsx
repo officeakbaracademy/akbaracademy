@@ -51,7 +51,7 @@ export function WhoWeAre() {
               {PILLS.map((p) => (
                 <span
                   key={p}
-                  className="rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-semibold text-primary"
+                  className="rounded-full border border-primary/15 bg-primary/[0.07] px-3.5 py-1.5 text-sm font-medium text-foreground/80"
                 >
                   {p}
                 </span>

@@ -285,7 +285,7 @@ export function SiteHeader() {
         <Logo priority />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-0.5 lg:flex">
+        <nav className="hidden items-center gap-0.5 whitespace-nowrap xl:flex">
           <TopLink href="/about">About</TopLink>
           <SubjectDropdown label="Courses" base="courses" />
           <SubjectDropdown label="Past Papers" base="past-papers" />
@@ -316,7 +316,7 @@ export function SiteHeader() {
               aria-label="Open menu"
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
-                "lg:hidden"
+                "xl:hidden"
               )}
             >
               <Menu className="size-5" />

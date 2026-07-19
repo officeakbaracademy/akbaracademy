@@ -14,6 +14,10 @@ export const site = {
   whatsappLabel: "+965 6703 6380",
   register: "https://www.akbaracademy.co.uk/?login=popup",
   login: "https://www.akbaracademy.co.uk/?login=popup",
+  // Parent enrolment funnel, where every "Book your evaluation" CTA points.
+  bookEvaluation:
+    "https://enrollment.akbaracademy.co/parent-funnel-home-page",
+  trustpilot: "https://www.trustpilot.com/review/akbaracademy.co.uk",
   email: "akbaracademy.co.uk@gmail.com",
   socials: {
     facebook: "https://www.facebook.com/akbaracademyofficial/",
@@ -33,8 +37,13 @@ export const site = {
 // Top announcement ticker (scrolls across the very top of every page).
 export const announcements = [
   {
-    strong: "September intake now open",
-    post: ", evaluation places are limited and filling weekly",
+    strong: "Academic session starts this August",
+    post: ", book your seat before classes fill",
+  },
+  {
+    pre: "Only a ",
+    strong: "limited number of seats per class",
+    post: ", we keep groups small on purpose",
   },
   { strong: "Cambridge, Edexcel and AQA" },
   { pre: "Led by a ", strong: "Cambridge and Edexcel endorsed author" },
@@ -425,8 +434,8 @@ export const team = [
     subject: "Biology Lead",
     photo: "/assets/team-alex.jpg",
     credentials: [
-      { icon: "badge", text: "IGCSE & A-Level Biology specialist" },
-      { icon: "doc", text: "Cambridge & Edexcel exam boards" },
+      { icon: "doc", text: "PGCE Biology, First class" },
+      { icon: "badge", text: "15 years teaching experience" },
     ],
   },
   {
@@ -495,63 +504,66 @@ export const reviews = [
   },
 ];
 
-// Short testimonials for the hero slider (with the real grade jump).
+// Real reviews published on Trustpilot. Quotes are the reviewers' own words,
+// trimmed only at sentence boundaries. Do not edit the wording.
+export const trustpilotStats = { score: "4.9", count: "172" };
+
 export const tickerReviews = [
   {
-    from: "C",
-    to: "A",
-    subject: "Physics",
-    quote: "My son jumped from a C to an A. Best teacher ever.",
-    name: "Aisha",
-    role: "Parent",
+    title: "Akbar physics teacher",
+    quote:
+      "Mr Akbar is a wonderful physics teacher and has made physics such an easy subject for me. When I started I wasn't confident at all but now I'm certain I'll get top marks.",
+    name: "Faisal Al Ghanim",
+    location: "Kuwait",
   },
   {
-    from: "D",
-    to: "A*",
-    subject: "Chemistry",
-    quote: "The structure made everything finally click for me.",
-    name: "Yousef",
-    role: "Student",
+    title: "The best physics teacher",
+    quote:
+      "Mr Akbar's positive attitude and encouragement over the years, paired with his incredible knowledge and experience with numerous exam systems, made him the best physics teacher I've ever had.",
+    name: "Khaled Eid",
+    location: "Kuwait",
   },
   {
-    from: "U",
-    to: "A",
-    subject: "Maths",
-    quote: "From failing to top of the class in one year.",
-    name: "Fatima",
-    role: "Parent",
+    title: "Achieved an A at IGCSE",
+    quote:
+      "Going to the start of year 11 I had been struggling with physics and my grade had dropped, but with the help of Akbar Academy I was able to achieve an A in my IGCSE.",
+    name: "Malak",
+    location: "Egypt",
   },
   {
-    from: "5",
-    to: "9",
-    subject: "Biology",
-    quote: "Finally understanding the topics is what got me the grade.",
-    name: "Maya",
-    role: "Student",
+    title: "Mr Akbar",
+    quote:
+      "Mr Akbar is one of the best teachers and characters I've ever met. His textbook is one of a kind, it covers topics in intense detail and it makes physics concepts really easy.",
+    name: "Antony Mettry",
+    location: "Kuwait",
   },
   {
-    from: "E",
-    to: "B",
-    subject: "English",
-    quote: "Confident, clear teaching that stuck after the exam.",
-    name: "Omar",
-    role: "Student",
+    title: "I took biology with Miss Nunn",
+    quote:
+      "I took biology with Miss Nunn, her classes were so fun. She makes learning fun and easy, and delivers the information in a way where she makes sure you'll never forget it again.",
+    name: "Lana",
+    location: "Kuwait",
   },
   {
-    from: "3",
-    to: "7",
-    subject: "Physics",
-    quote: "Weekly feedback kept us in the loop the whole way.",
-    name: "Abeer",
-    role: "Parent",
+    title: "We are deeply grateful to you",
+    quote:
+      "We are deeply grateful to you, Mr Akbar, for all the help and support you've given my children. Their accomplishments are a true reflection of your dedication.",
+    name: "Abeer Altararwa",
+    location: "Kuwait",
   },
   {
-    from: "C",
-    to: "A*",
-    subject: "Chemistry",
-    quote: "Worth every penny. A genuinely different system.",
-    name: "Hassan",
-    role: "Parent",
+    title: "Ms Nunn, great teacher",
+    quote:
+      "Ms Nunn was a great teacher, calm, experienced and really good when it comes to teaching. She helped me with the subject that I felt the worst at.",
+    name: "Fahad Boresli",
+    location: "Kuwait",
+  },
+  {
+    title: "The fun in learning",
+    quote:
+      "My experience was great as I felt everything was well organised and easily accessible, which allowed me to waste way less time, and I also had fun in the lessons.",
+    name: "Ward Turjuman",
+    location: "Kuwait",
   },
 ];
 

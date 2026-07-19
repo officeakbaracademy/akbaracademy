@@ -90,15 +90,15 @@ export default function HomePage() {
       {/* <WhyChoose /> */}
       {/* <About /> */}
       <SubjectsShowcase />
-      <Values />
+      <WhyUs />
+      {/* <Values /> */}
       {/* <Stats /> */}
       <SystemSection />
       <Proof />
-      <WhyUs />
       <LearningModes />
       <WeekToWeek />
       <WhyAkbar />
-      <Problem />
+      {/* <Problem /> */}
       <TeamCarousel />
       {/* <Pricing /> */}
       <PricingPlans />

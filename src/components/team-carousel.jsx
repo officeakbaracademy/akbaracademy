@@ -21,7 +21,6 @@ export function TeamCarousel() {
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
             Every teacher is British qualified, with deep experience across
             international schools and the Cambridge, Edexcel and AQA exam boards.
-            Hand-picked by Mr Akbar to teach IGCSE, AS and A2.
           </p>
         </div>
 
@@ -70,17 +69,6 @@ export function TeamCarousel() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-muted-foreground">
-          Looking for a specific subject or exam board?{" "}
-          <a
-            href={site.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-primary hover:underline"
-          >
-            Ask us and we will match your child to the right teacher.
-          </a>
-        </p>
       </Container>
     </section>
   );

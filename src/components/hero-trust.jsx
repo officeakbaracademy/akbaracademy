@@ -53,13 +53,13 @@ function TrustItem({ icon, title, sub, stars, titleClassName, subClassName }) {
       <div className="min-w-0 leading-tight">
         <div
           className={cn(
-            "text-sm font-bold leading-tight text-foreground",
+            "text-sm font-bold leading-tight text-white",
             titleClassName
           )}
         >
           {title}
         </div>
-        <div className={cn("text-xs leading-tight text-muted-foreground", subClassName)}>
+        <div className={cn("text-xs leading-tight text-white/70", subClassName)}>
           {sub}
         </div>
         {stars && <StarRow tone={stars} />}
@@ -71,9 +71,9 @@ function TrustItem({ icon, title, sub, stars, titleClassName, subClassName }) {
 // Social-proof strip that sits at the foot of the hero.
 export function HeroTrust() {
   return (
-    <div className="pb-14 lg:pb-20">
-      <div className="rounded-3xl border border-border bg-card/70 px-5 py-5 backdrop-blur sm:px-8">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-5 lg:flex lg:items-start lg:justify-between lg:gap-6">
+    <div className="pb-10 lg:pb-20">
+      <div className="rounded-3xl bg-black/50 px-5 py-5 ring-1 ring-white/15 backdrop-blur-md sm:px-8">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:gap-x-8 sm:gap-y-5 lg:flex lg:items-start lg:justify-between lg:gap-6">
           <TrustItem
             icon={
               <span className="flex items-center gap-1">
@@ -95,7 +95,7 @@ export function HeroTrust() {
             }
             title="Cambridge & Edexcel"
             titleClassName="lg:max-w-[7rem]"
-            sub="awarded teacher"
+            sub="endorsed author"
           />
           <TrustItem
             icon={<User className="size-7 text-gold" />}

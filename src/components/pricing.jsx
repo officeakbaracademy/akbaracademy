@@ -225,7 +225,7 @@ export function Pricing() {
             </div>
 
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <ButtonLink size="lg" className="h-11 px-6" href="/pricing">
+              <ButtonLink size="lg" className="h-11 px-6" href={site.bookEvaluation}>
                 Book your evaluation
               </ButtonLink>
               <ButtonLink

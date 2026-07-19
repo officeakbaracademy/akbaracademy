@@ -46,21 +46,23 @@ function TrustpilotBadge() {
 
 export function Proof() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0b7ab5] via-[#0a6699] to-[#08527e] py-14 sm:py-20">
+    <section className="bg-brand-blue relative overflow-hidden py-14 sm:py-20">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
           {/* LEFT — the headline number */}
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-              The proof
+            <p>
+              <span className="inline-flex items-center rounded-full bg-gold px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-gold-foreground">
+                The proof
+              </span>
             </p>
-            <div className="mt-3 font-heading text-6xl font-extrabold leading-none tracking-tight text-gold sm:text-7xl">
+            <div className="mt-3 font-heading text-6xl font-extrabold leading-none tracking-tight text-primary-foreground sm:text-7xl">
               {proof.stat}
             </div>
-            <h2 className="mt-4 max-w-md font-heading text-2xl font-bold leading-snug text-balance text-white sm:text-[1.75rem]">
+            <h2 className="mt-4 max-w-md font-heading text-2xl font-bold leading-snug text-balance text-primary-foreground sm:text-[1.75rem]">
               {proof.claim}
             </h2>
-            <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90 text-pretty">
+            <p className="mt-4 max-w-md text-lg leading-relaxed text-primary-foreground/80 text-pretty">
               {proof.detail}
             </p>
             <div className="mt-7">
@@ -74,17 +76,17 @@ export function Proof() {
               <Reveal
                 key={r.name}
                 delay={i * 120}
-                className="flex flex-col rounded-2xl bg-white/15 p-6 ring-1 ring-white/30"
+                className="flex flex-col rounded-2xl bg-primary-foreground/10 p-6 ring-1 ring-primary-foreground/15"
               >
-                <Stars className="flex gap-0.5 text-gold" />
-                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-white">
+                <Stars className="flex gap-0.5 text-primary-foreground/70" />
+                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-primary-foreground/85">
                   {r.quote}
                 </p>
                 <div className="mt-5">
-                  <div className="font-heading text-sm font-bold text-white">
+                  <div className="font-heading text-sm font-bold text-primary-foreground">
                     {r.name}
                   </div>
-                  <div className="mt-0.5 text-xs text-white/80">{r.role}</div>
+                  <div className="mt-0.5 text-xs text-primary-foreground/70">{r.role}</div>
                 </div>
               </Reveal>
             ))}

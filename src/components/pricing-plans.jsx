@@ -1,7 +1,7 @@
-import { Check, Info } from "lucide-react";
+import { Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { plans, evaluation } from "@/lib/site";
+import { plans } from "@/lib/site";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { ButtonLink } from "@/components/button-link";
@@ -78,23 +78,6 @@ export function PricingPlans() {
           ))}
         </div>
 
-        {/* No free trials, paid evaluation instead */}
-        <Reveal
-          delay={200}
-          className="mx-auto mt-6 flex max-w-3xl items-start gap-3.5 rounded-2xl bg-primary/[0.07] p-5 ring-1 ring-primary/15 sm:p-6"
-        >
-          <Info className="mt-0.5 size-5 shrink-0 text-primary" />
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            <span className="font-bold text-foreground">
-              We do not offer free trials.
-            </span>{" "}
-            Instead we offer a paid evaluation session for {evaluation.currency}{" "}
-            {evaluation.price}. It secures your child&rsquo;s place, covers
-            their first lessons, and lets us confirm the right class and level
-            before you commit. Serious families only, which is exactly how we
-            keep our standard high.
-          </p>
-        </Reveal>
       </Container>
     </section>
   );
