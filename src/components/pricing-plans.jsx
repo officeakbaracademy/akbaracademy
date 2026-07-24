@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { plans } from "@/lib/site";
@@ -78,6 +78,12 @@ export function PricingPlans() {
           ))}
         </div>
 
+        <div className="mt-8 text-center">
+          <ButtonLink variant="outline" href="/pricing">
+            See full pricing and course types
+            <ArrowRight className="size-4" />
+          </ButtonLink>
+        </div>
       </Container>
     </section>
   );

@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Award, FileText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { team, site } from "@/lib/site";
+import { team } from "@/lib/site";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
+import { ButtonLink } from "@/components/button-link";
 
-const CRED_ICONS = { badge: Award, doc: FileText };
-
+// Homepage teaser only. The full teacher profiles live on the About page.
 export function TeamCarousel() {
   return (
     <section id="team" className="py-12 sm:py-16">
@@ -19,56 +19,32 @@ export function TeamCarousel() {
             All British qualified. All experts. All hand-picked.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Every teacher is British qualified, with deep experience across
-            international schools and the Cambridge, Edexcel and AQA exam boards.
+            A hand-picked team of British qualified teachers, examiners and
+            published authors, one specialist for every subject.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((t, i) => (
-            <Reveal key={t.name} delay={(i % 3) * 80} className="h-full">
-              <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 text-center">
-                {/* role pill */}
-                <span className="mx-auto inline-flex items-center rounded-full bg-gold/12 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-gold">
-                  {t.subject}
-                </span>
+        {/* overlapping avatar row */}
+        <Reveal className="mt-9 flex flex-col items-center gap-6">
+          <div className="flex -space-x-3">
+            {team.map((t) => (
+              <Image
+                key={t.name}
+                src={t.photo}
+                alt={t.name}
+                width={64}
+                height={64}
+                className="size-14 rounded-full object-cover ring-2 ring-background sm:size-16"
+                loading="eager"
+              />
+            ))}
+          </div>
 
-                {/* avatar */}
-                <Image
-                  src={t.photo}
-                  alt={t.name}
-                  width={96}
-                  height={96}
-                  className="mx-auto mt-5 size-20 rounded-full object-cover ring-2 ring-primary/20"
-                  loading="eager"
-                />
-
-                {/* name */}
-                <h3 className="mt-4 font-heading text-lg font-bold tracking-tight">
-                  {t.name}
-                </h3>
-
-                <hr className="mt-4 mb-5 border-border" />
-
-                {/* credentials */}
-                <ul className="space-y-3 text-left">
-                  {t.credentials.map((c) => {
-                    const Icon = CRED_ICONS[c.icon] ?? Award;
-                    return (
-                      <li key={c.text} className="flex items-start gap-2.5">
-                        <Icon className="mt-0.5 size-4 shrink-0 text-gold" />
-                        <span className="text-[13px] leading-relaxed text-muted-foreground">
-                          {c.text}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-
+          <ButtonLink href="/about">
+            Meet the team
+            <ArrowRight className="size-4" />
+          </ButtonLink>
+        </Reveal>
       </Container>
     </section>
   );

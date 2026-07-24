@@ -1,19 +1,14 @@
+import { ArrowRight } from "lucide-react";
+
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
+import { ButtonLink } from "@/components/button-link";
 
 const STATS = [
   { value: "5", label: "Core subjects taught by specialists" },
   { value: "3", label: "Ways to learn: onsite, hybrid, online" },
   { value: "96%", label: "Of our students reach A* to B" },
   { value: "1:1", label: "Attention inside structured group classes" },
-];
-
-const PILLS = [
-  "IGCSE",
-  "AS Level",
-  "A Level",
-  "Onsite in Kuwait",
-  "Live online across the GCC",
 ];
 
 export function WhoWeAre() {
@@ -30,32 +25,17 @@ export function WhoWeAre() {
               Not extra tuition. A complete academic system.
             </h2>
 
-            <div className="mt-5 space-y-4 text-lg text-muted-foreground text-pretty">
-              <p>
-                Akbar Academy is a premium British curriculum academy built
-                around one idea: students improve fastest when teaching,
-                practice, marking and feedback all work together. We are not a
-                drop in tuition centre and we are not about handing out past
-                papers. We teach, we track, and we show parents real progress
-                every week.
-              </p>
-              <p>
-                Founded and led by published Physics author Mr Kaleem Akbar, our
-                teachers are British qualified subject specialists. We serve
-                families in Kuwait face to face, and students across the GCC
-                through hybrid and live online classes.
-              </p>
-            </div>
+            <p className="mt-5 text-lg text-muted-foreground text-pretty">
+              A premium British curriculum academy built on one idea: students
+              improve fastest when teaching, practice, marking and feedback work
+              as one system. Led by published Physics author Mr Kaleem Akbar.
+            </p>
 
-            <div className="mt-7 flex flex-wrap gap-2">
-              {PILLS.map((p) => (
-                <span
-                  key={p}
-                  className="rounded-full border border-primary/15 bg-primary/[0.07] px-3.5 py-1.5 text-sm font-medium text-foreground/80"
-                >
-                  {p}
-                </span>
-              ))}
+            <div className="mt-7">
+              <ButtonLink href="/about">
+                About Akbar Academy
+                <ArrowRight className="size-4" />
+              </ButtonLink>
             </div>
           </Reveal>
 

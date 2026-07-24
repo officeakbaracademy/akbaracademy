@@ -85,27 +85,20 @@ export default function HomePage() {
       <JsonLd />
       <Hero />
       <BoardStrip />
+      {/* Lean "hub" homepage: each block is a short teaser that links out to
+          its own page. The deeper sections now live on inner pages. */}
       <WhoWeAre />
-      {/* <Challenges /> */}
-      {/* <WhyChoose /> */}
-      {/* <About /> */}
       <SubjectsShowcase />
-      <WhyUs />
-      {/* <Values /> */}
-      {/* <Stats /> */}
-      <SystemSection />
       <Proof />
-      <LearningModes />
-      <WeekToWeek />
-      <WhyAkbar />
-      {/* <Problem /> */}
-      <TeamCarousel />
-      {/* <Pricing /> */}
+      <WhyUs />
       <PricingPlans />
-      <Faq />
+      <TeamCarousel />
       <Reviews />
-      {/* <Resources /> */}
       <FinalCta />
+
+      {/* Deep sections moved to inner pages (About / How it works / Pricing):
+          WhyUs, SystemSection, LearningModes, WeekToWeek, WhyAkbar, Faq,
+          Values, Problem, WhyChoose, Challenges, Resources, Stats. */}
     </>
   );
 }
