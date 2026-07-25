@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { subjects } from "@/lib/site";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
+import { ButtonLink } from "@/components/button-link";
 
-export function SubjectsShowcase() {
+// `showBrowseAll` adds a "Browse all courses" button (used on the homepage,
+// where this is a teaser that links out to the full Courses page).
+export function SubjectsShowcase({ showBrowseAll = false }) {
   return (
     <section id="subjects" className="py-12 sm:py-16">
       <Container>
@@ -66,6 +70,15 @@ export function SubjectsShowcase() {
             </Reveal>
           ))}
         </div>
+
+        {showBrowseAll && (
+          <div className="mt-10 text-center">
+            <ButtonLink variant="outline" href="/courses">
+              Browse all courses
+              <ArrowRight className="size-4" />
+            </ButtonLink>
+          </div>
+        )}
       </Container>
     </section>
   );

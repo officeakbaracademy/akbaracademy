@@ -724,7 +724,9 @@ export function Team() {
 }
 
 // 9 — REVIEWS -----------------------------------------------------------------
-export function Reviews() {
+// On the homepage the CTA funnels to the /reviews page; on the /reviews page
+// itself it points out to Trustpilot (pass `trustpilot`).
+export function Reviews({ trustpilot = false }) {
   const items = [...tickerReviews, ...tickerReviews];
   return (
     <section id="reviews" className="border-t border-border py-12 sm:py-16">
@@ -747,14 +749,20 @@ export function Reviews() {
 
       <Container>
         <div className="mt-10 text-center">
-          <ButtonLink
-            variant="outline"
-            href={site.trustpilot}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read all reviews on Trustpilot
-          </ButtonLink>
+          {trustpilot ? (
+            <ButtonLink
+              variant="outline"
+              href={site.trustpilot}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read all reviews on Trustpilot
+            </ButtonLink>
+          ) : (
+            <ButtonLink variant="outline" href="/reviews">
+              Read all reviews
+            </ButtonLink>
+          )}
         </div>
       </Container>
     </section>

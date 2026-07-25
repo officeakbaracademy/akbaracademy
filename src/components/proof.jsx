@@ -1,4 +1,4 @@
-import { Star, ArrowRight } from "lucide-react";
+import { Star } from "lucide-react";
 
 import { proof, proofReviews } from "@/lib/site";
 import { Container } from "@/components/container";
@@ -66,16 +66,8 @@ export function Proof() {
             <p className="mt-4 max-w-md text-lg leading-relaxed text-primary-foreground/80 text-pretty">
               {proof.detail}
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-4">
+            <div className="mt-7">
               <TrustpilotBadge />
-              <ButtonLink
-                href="/reviews"
-                size="lg"
-                className="h-11 bg-white px-6 text-primary-foreground hover:bg-white/90"
-              >
-                See our results
-                <ArrowRight className="size-4" />
-              </ButtonLink>
             </div>
           </Reveal>
 

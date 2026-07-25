@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/page-hero";
 import { Pricing } from "@/components/pricing";
+import { WeekToWeek } from "@/components/week-to-week";
 import { Faq, FinalCta } from "@/components/home-sections";
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function PricingPage() {
         lead="Start with a low-commitment evaluation, then choose the course type that fits. All fees in Kuwaiti Dinar."
       />
       <Pricing />
+      <WeekToWeek />
       <Faq />
       <FinalCta />
     </>

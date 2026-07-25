@@ -5,11 +5,15 @@ import Link from "next/link";
 import {
   Menu,
   BookOpen,
-  Book,
-  Trophy,
+  CalendarDays,
+  FolderOpen,
   MonitorPlay,
-  Download,
-  Sparkles,
+  Video,
+  CircleHelp,
+  FileText,
+  FileCheck,
+  Lightbulb,
+  Presentation,
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
@@ -35,7 +39,18 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const RESOURCE_ICONS = { BookOpen, Book, Trophy, MonitorPlay, Download, Sparkles };
+const RESOURCE_ICONS = {
+  BookOpen,
+  CalendarDays,
+  FolderOpen,
+  MonitorPlay,
+  Video,
+  CircleHelp,
+  FileText,
+  FileCheck,
+  Lightbulb,
+  Presentation,
+};
 const boardName = (slug) => boards.find((b) => b.slug === slug)?.short ?? slug;
 
 // --- Compact hover dropdown (desktop) ---------------------------------------

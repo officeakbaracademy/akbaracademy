@@ -1,11 +1,15 @@
 import Link from "next/link";
 import {
   BookOpen,
-  Book,
-  Trophy,
+  CalendarDays,
+  FolderOpen,
   MonitorPlay,
-  Download,
-  Sparkles,
+  Video,
+  CircleHelp,
+  FileText,
+  FileCheck,
+  Lightbulb,
+  Presentation,
   ArrowRight,
 } from "lucide-react";
 
@@ -17,11 +21,15 @@ import { FinalCta } from "@/components/home-sections";
 
 const ICONS = {
   BookOpen,
-  Book,
-  Trophy,
+  CalendarDays,
+  FolderOpen,
   MonitorPlay,
-  Download,
-  Sparkles,
+  Video,
+  CircleHelp,
+  FileText,
+  FileCheck,
+  Lightbulb,
+  Presentation,
 };
 
 export const metadata = {

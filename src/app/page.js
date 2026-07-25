@@ -19,7 +19,7 @@ import { WhyUs } from "@/components/why-us";
 import { LearningModes } from "@/components/learning-modes";
 import { Values } from "@/components/values";
 import { Proof } from "@/components/proof";
-import { Resources } from "@/components/resources";
+import { ResourceGrid } from "@/components/resource-grid";
 import { WeekToWeek } from "@/components/week-to-week";
 // import { Pricing } from "@/components/pricing";
 import { PricingPlans } from "@/components/pricing-plans";
@@ -88,12 +88,13 @@ export default function HomePage() {
       {/* Lean "hub" homepage: each block is a short teaser that links out to
           its own page. The deeper sections now live on inner pages. */}
       <WhoWeAre />
-      <SubjectsShowcase />
+      <SubjectsShowcase showBrowseAll />
       <Proof />
-      <WhyUs />
+      {/* <WhyUs />   */}
       <PricingPlans />
       <TeamCarousel />
       <Reviews />
+      <ResourceGrid />
       <FinalCta />
 
       {/* Deep sections moved to inner pages (About / How it works / Pricing):

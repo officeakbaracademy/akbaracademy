@@ -34,6 +34,32 @@ export const site = {
   },
 };
 
+// Physical offices, shown on the Contact page.
+export const locations = [
+  {
+    country: "Kuwait",
+    lines: [
+      "Block 3, Street 64",
+      "Victoria English Institute building",
+      "Bneid Al Gar, Kuwait City",
+    ],
+    phone: "+965 6703 6380",
+    phoneHref: "tel:+96567036380",
+    map: "https://maps.google.com/?q=Victoria+English+Institute+Bneid+Al+Gar+Kuwait",
+    mapEmbed:
+      "https://www.google.com/maps?q=Victoria%20English%20Institute%20Bneid%20Al%20Gar%20Kuwait&output=embed",
+  },
+  {
+    country: "United Kingdom",
+    lines: ["18 St Leonards Road", "Ayr, Ayrshire", "Scotland, KA7 2PT"],
+    phone: "+44 141 416 3298",
+    phoneHref: "tel:+441414163298",
+    map: "https://maps.google.com/?q=18+St+Leonards+Road+Ayr+KA7+2PT",
+    mapEmbed:
+      "https://www.google.com/maps?q=18%20St%20Leonards%20Road%20Ayr%20KA7%202PT&output=embed",
+  },
+];
+
 // Top announcement ticker (scrolls across the very top of every page).
 export const announcements = [
   {
@@ -144,44 +170,68 @@ export const subjects = [
   },
 ];
 
-// Resources mega-menu.
+// The resources offered inside the Akbar Academy student app. These feed the
+// Resources nav dropdown, the /resources page and every category page.
 export const resourceCategories = [
   {
-    slug: "ebooks",
-    name: "eBooks",
-    desc: "Digital textbooks & guides for every subject and board.",
+    slug: "books",
+    name: "Books",
+    desc: "Our endorsed IGCSE textbooks and study guides, in print and digital.",
     icon: "BookOpen",
   },
   {
-    slug: "printed-books",
-    name: "Printed Books",
-    desc: "Our Cambridge, Edexcel & AQA revision books in print.",
-    icon: "Book",
+    slug: "calendar",
+    name: "Calendar",
+    desc: "Your class timetable, key dates and exam deadlines in one place.",
+    icon: "CalendarDays",
   },
   {
-    slug: "ace-my-exams",
-    name: "Ace My Exams",
-    desc: "Topic-by-topic past-paper mastery, everything you need to hit the grade.",
-    icon: "Trophy",
-    featured: true,
+    slug: "course-materials",
+    name: "Course Materials",
+    desc: "Every note, worksheet and handout, mapped to your syllabus.",
+    icon: "FolderOpen",
   },
   {
-    slug: "virtual-resources",
-    name: "Virtual Resources",
-    desc: "Recorded lessons and on-demand learning you can study at your own pace.",
+    slug: "topic-videos",
+    name: "Topic Videos",
+    desc: "Short lesson videos that explain every topic, step by step.",
     icon: "MonitorPlay",
   },
   {
-    slug: "digital-downloads",
-    name: "Digital Downloads",
-    desc: "Worksheets, mark schemes and printable resource packs.",
-    icon: "Download",
+    slug: "zoom-videos",
+    name: "Zoom Videos",
+    desc: "Full recordings of live lessons, to rewatch any time.",
+    icon: "Video",
   },
   {
-    slug: "revision-products",
-    name: "Revision Products",
-    desc: "Flashcards, mind maps and exam-season revision tools.",
-    icon: "Sparkles",
+    slug: "topic-quizzes",
+    name: "Topic Quizzes",
+    desc: "Quick quizzes after every topic to check what has stuck.",
+    icon: "CircleHelp",
+  },
+  {
+    slug: "classified-papers",
+    name: "Classified Papers",
+    desc: "Past paper questions sorted by topic, for focused practice.",
+    icon: "FileText",
+  },
+  {
+    slug: "classified-mark-schemes",
+    name: "Classified Mark Schemes",
+    desc: "Mark schemes and model answers for every classified question.",
+    icon: "FileCheck",
+  },
+  {
+    slug: "study-tips",
+    name: "Study Tips",
+    desc: "Practical revision and exam technique advice from our teachers.",
+    icon: "Lightbulb",
+  },
+  {
+    slug: "presentations",
+    name: "Presentations",
+    desc: "The lesson slides used in class, to review at your own pace.",
+    icon: "Presentation",
   },
 ];
 

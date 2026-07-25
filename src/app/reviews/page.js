@@ -18,7 +18,7 @@ export default function ReviewsPage() {
         lead={`Rated ${trustpilotStats.score} out of 5 on Trustpilot from ${trustpilotStats.count} reviews. Here is what families say, and the results behind it.`}
       />
       <Proof />
-      <Reviews />
+      <Reviews trustpilot />
       <FinalCta />
     </>
   );
