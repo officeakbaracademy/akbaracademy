@@ -15,6 +15,14 @@ import { Container } from "@/components/container";
 import { ContactForm } from "@/components/contact-form";
 import { FinalCta } from "@/components/home-sections";
 
+const initialsOf = (name) =>
+  name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+
 export const metadata = {
   title: "Contact",
   description:
@@ -276,31 +284,33 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-3">
+          <div className="mx-auto mt-12 grid max-w-xl gap-5 lg:max-w-5xl lg:grid-cols-3">
             {REVIEWS.map((r) => (
               <figure
                 key={r.name}
-                className="flex flex-col overflow-hidden rounded-2xl bg-[#0f1720] ring-1 ring-white/10"
+                className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-black/5"
               >
-                <div className="h-1.5 bg-gold" />
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex gap-1 text-gold">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-4 fill-current" />
-                    ))}
+                <div className="flex items-center gap-3">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-primary font-heading text-sm font-bold text-primary-foreground">
+                    {initialsOf(r.name)}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="font-heading text-sm font-bold text-foreground">
+                      {r.name}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {r.location}
+                    </div>
                   </div>
-                  <div className="mt-4 font-heading text-base font-bold text-white">
-                    {r.title}
-                  </div>
-                  <blockquote className="mt-2 flex-1 text-sm leading-relaxed text-white/70 text-pretty">
-                    {r.quote}
-                  </blockquote>
-                  <figcaption className="mt-5 text-sm">
-                    <span className="font-semibold text-white">{r.name}</span>
-                    <span className="text-white/40"> · </span>
-                    <span className="text-white/50">{r.location}</span>
-                  </figcaption>
                 </div>
+                <div className="mt-4 flex gap-0.5 text-gold">
+                  {Array.from({ length: 5 }).map((_, k) => (
+                    <Star key={k} className="size-4 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                  &ldquo;{r.quote}&rdquo;
+                </blockquote>
               </figure>
             ))}
           </div>

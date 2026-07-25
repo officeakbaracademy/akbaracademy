@@ -9,8 +9,12 @@ import { buttonVariants } from "@/components/ui/button";
 
 const ROLES = ["Parent", "Student", "Teacher", "Other"];
 
+// Underline inputs read as crafted/editorial rather than the generic filled pill.
 const fieldClass =
-  "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20";
+  "w-full border-0 border-b border-border bg-transparent px-0.5 py-2 text-[15px] text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary";
+
+const textareaClass =
+  "w-full rounded-md border border-border bg-transparent px-3.5 py-3 text-[15px] text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary resize-y";
 
 export function ContactForm() {
   const [role, setRole] = React.useState("Parent");
@@ -136,7 +140,7 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="Tell us the year group, school, subject and board, and what you would like help with."
-          className={cn(fieldClass, "resize-y")}
+          className={textareaClass}
         />
       </div>
 
