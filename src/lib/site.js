@@ -19,6 +19,10 @@ export const site = {
     "https://enrollment.akbaracademy.co/parent-funnel-home-page",
   trustpilot: "https://www.trustpilot.com/review/akbaracademy.co.uk",
   email: "akbaracademy.co.uk@gmail.com",
+  // Free contact-form -> email service. Get a key at https://web3forms.com
+  // (enter akbaracademy.co.uk@gmail.com, they email you the key), then paste it
+  // here. Submissions from the contact form will arrive in that inbox.
+  web3formsKey: "YOUR_ACCESS_KEY_HERE",
   socials: {
     facebook: "https://www.facebook.com/akbaracademyofficial/",
     instagram: "https://www.instagram.com/akbaracademyofficial/",

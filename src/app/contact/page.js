@@ -4,7 +4,6 @@ import {
   MessageCircle,
   Mail,
   MapPin,
-  Phone,
   ArrowUpRight,
   ArrowRight,
   Star,
@@ -230,12 +229,9 @@ export default function ContactPage() {
                   className="h-52 w-full border-0"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="size-5 shrink-0 text-primary" />
-                    <p className="font-heading text-lg font-bold">
-                      {loc.country}
-                    </p>
-                  </div>
+                  <p className="font-heading text-lg font-bold">
+                    {loc.country}
+                  </p>
                   <address className="mt-3 flex-1 text-sm not-italic leading-relaxed text-muted-foreground">
                     {loc.lines.map((line) => (
                       <span key={line} className="block">
@@ -246,9 +242,8 @@ export default function ContactPage() {
                   <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
                     <a
                       href={loc.phoneHref}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/90 hover:text-primary"
+                      className="text-sm font-semibold text-foreground/90 hover:text-primary"
                     >
-                      <Phone className="size-4 text-primary" />
                       {loc.phone}
                     </a>
                     <a
